@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -31,41 +32,132 @@
   --font-head:'Poppins',sans-serif;
   --font-body:'Inter',sans-serif;
   --font-hand:'Caveat',cursive;
+ 
+  /* ---- Seasonal theme-engine tokens (overridden per [data-theme]) ---- */
+  --body-bg:#FFF3E6;
+  --sky-1:#FFF3E1; --sky-2:#FFE9D6; --sky-3:#FFE0D6; --sky-4:#FFEFE0; --sky-5:#FFF8F2;
+  --blob-1: radial-gradient(circle at 30% 30%, #FFD670, transparent 70%);
+  --blob-2: radial-gradient(circle at 60% 40%, #FF8FA3, transparent 70%);
+  --blob-3: radial-gradient(circle at 50% 50%, #BEE9FF, transparent 70%);
+  --sidebar-1: rgba(255,255,255,0.55);
+  --sidebar-2: rgba(255,178,122,0.25);
+  --ray-color: rgba(255,214,112,0.35);
+  --particle-glow: rgba(255,224,102,0.8);
+  --show-rays: none;
+  --show-sparkle: block;
+}
+html{ transition: background-color .7s ease; }
+[data-theme] *:not(.petal):not(.sparkle){ transition: background-color .6s ease, border-color .6s ease, color .6s ease, box-shadow .6s ease; }
+.sky, .blob, .sidebar{ transition: background .8s ease, opacity .8s ease; }
+.ray{ display: var(--show-rays); }
+.sparkle{ display: var(--show-sparkle); }
+ 
+/* ================= SEASONAL THEMES ================= */
+[data-theme="spring"]{
+  --peach:#FFC1CC; --sunset:#F97FA0; --coral:#C9A9E8; --cream:#FFF7FB; --sand:#F3E8FF;
+  --gold:#9FD8B4; --lemon:#FFD1DC; --sky:#E8D9FF; --seafoam:#BFF0D4; --lavender:#DCCBFF; --mango:#FFAFC4;
+  --text:#5A4A5C; --text-soft:#8C7A94;
+  --body-bg:#FFF3F8;
+  --sky-1:#FFF1F7; --sky-2:#FCE7FB; --sky-3:#EFE3FF; --sky-4:#E8F7EC; --sky-5:#FFFAFD;
+  --blob-1: radial-gradient(circle at 30% 30%, #FFC1CC, transparent 70%);
+  --blob-2: radial-gradient(circle at 60% 40%, #DCCBFF, transparent 70%);
+  --blob-3: radial-gradient(circle at 50% 50%, #BFF0D4, transparent 70%);
+  --sidebar-1: rgba(255,255,255,0.6); --sidebar-2: rgba(249,127,160,0.18);
+  --ray-color: rgba(249,127,160,0.2); --particle-glow: rgba(255,193,204,0.8);
+  --show-rays: none; --show-sparkle: none;
+}
+[data-theme="summer"]{
+  --peach:#FFB27A; --sunset:#FF9966; --coral:#FF8FA3; --cream:#FFF8F2; --sand:#F6E7D8;
+  --gold:#FFD670; --lemon:#FFE066; --sky:#BEE9FF; --seafoam:#CFF7E3; --lavender:#DCCBFF; --mango:#FFC971;
+  --text:#5A4B47; --text-soft:#8A756E;
+  --body-bg:#FFF3E6;
+  --sky-1:#FFF3E1; --sky-2:#FFE9D6; --sky-3:#FFE0D6; --sky-4:#FFEFE0; --sky-5:#FFF8F2;
+  --blob-1: radial-gradient(circle at 30% 30%, #FFD670, transparent 70%);
+  --blob-2: radial-gradient(circle at 60% 40%, #FF8FA3, transparent 70%);
+  --blob-3: radial-gradient(circle at 50% 50%, #BEE9FF, transparent 70%);
+  --sidebar-1: rgba(255,255,255,0.55); --sidebar-2: rgba(255,178,122,0.25);
+  --ray-color: rgba(255,214,112,0.35); --particle-glow: rgba(255,224,102,0.8);
+  --show-rays: block; --show-sparkle: block;
+}
+[data-theme="monsoon"]{
+  --peach:#8FB8C9; --sunset:#5E93A8; --coral:#7FA89C; --cream:#F3F6F7; --sand:#E4EBED;
+  --gold:#A9C6CE; --lemon:#B9D9DD; --sky:#C7D8DD; --seafoam:#9FCFC0; --lavender:#B7C9D4; --mango:#9DB8C4;
+  --text:#3E4E54; --text-soft:#6E828A;
+  --body-bg:#EAF1F3;
+  --sky-1:#E7EFF1; --sky-2:#DCE8EB; --sky-3:#D2E1E3; --sky-4:#E2ECED; --sky-5:#F1F6F7;
+  --blob-1: radial-gradient(circle at 30% 30%, #A9C6CE, transparent 70%);
+  --blob-2: radial-gradient(circle at 60% 40%, #7FA89C, transparent 70%);
+  --blob-3: radial-gradient(circle at 50% 50%, #C7D8DD, transparent 70%);
+  --sidebar-1: rgba(255,255,255,0.5); --sidebar-2: rgba(94,147,168,0.22);
+  --ray-color: rgba(94,147,168,0.2); --particle-glow: rgba(159,207,192,0.7);
+  --show-rays: none; --show-sparkle: none;
+}
+[data-theme="autumn"]{
+  --peach:#E8935A; --sunset:#C1592B; --coral:#D98A3D; --cream:#FFF6EC; --sand:#F2DEC2;
+  --gold:#D9A441; --lemon:#E8B84B; --sky:#C98B5A; --seafoam:#B98255; --lavender:#A9673A; --mango:#E2954E;
+  --text:#4A342A; --text-soft:#85685A;
+  --body-bg:#FBEEDF;
+  --sky-1:#FBEADA; --sky-2:#F6DCC0; --sky-3:#F0D2B8; --sky-4:#F7E3C9; --sky-5:#FDF3E6;
+  --blob-1: radial-gradient(circle at 30% 30%, #D9A441, transparent 70%);
+  --blob-2: radial-gradient(circle at 60% 40%, #C1592B, transparent 70%);
+  --blob-3: radial-gradient(circle at 50% 50%, #A9673A, transparent 70%);
+  --sidebar-1: rgba(255,250,240,0.6); --sidebar-2: rgba(193,89,43,0.22);
+  --ray-color: rgba(217,164,65,0.25); --particle-glow: rgba(217,164,65,0.8);
+  --show-rays: none; --show-sparkle: none;
+}
+[data-theme="winter"]{
+  --peach:#DCE9F5; --sunset:#7FA9D6; --coral:#B9C6D6; --cream:#FBFDFF; --sand:#E7EEF5;
+  --gold:#C7D9EC; --lemon:#D7E6F2; --sky:#EAF3FB; --seafoam:#D3E4EE; --lavender:#C9D6E5; --mango:#BFD4E8;
+  --text:#3B4B5C; --text-soft:#74889A;
+  --body-bg:#F3F8FC;
+  --sky-1:#F5FAFF; --sky-2:#EAF3FB; --sky-3:#E0EDF8; --sky-4:#ECF5FC; --sky-5:#FAFDFF;
+  --blob-1: radial-gradient(circle at 30% 30%, #DCE9F5, transparent 70%);
+  --blob-2: radial-gradient(circle at 60% 40%, #C7D9EC, transparent 70%);
+  --blob-3: radial-gradient(circle at 50% 50%, #B9C6D6, transparent 70%);
+  --sidebar-1: rgba(255,255,255,0.65); --sidebar-2: rgba(127,169,214,0.2);
+  --ray-color: rgba(127,169,214,0.2); --particle-glow: rgba(220,233,245,0.9);
+  --show-rays: none; --show-sparkle: none;
 }
 *{box-sizing:border-box;}
 html,body{height:100%;}
-body{margin:0; font-family:var(--font-body); color:var(--text); overflow-x:hidden; background:#FFF3E6;}
+body{margin:0; font-family:var(--font-body); color:var(--text); overflow-x:hidden; background:var(--body-bg); transition:background-color .7s ease;}
 @media (prefers-reduced-motion: reduce){ *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;} }
 button{font-family:inherit; cursor:pointer;}
 :focus-visible{outline:3px solid #FF9966; outline-offset:2px; border-radius:8px;}
 ::-webkit-scrollbar{width:10px; height:10px;}
 ::-webkit-scrollbar-thumb{background:rgba(255,153,102,0.35); border-radius:10px;}
 ::-webkit-scrollbar-track{background:transparent;}
-.sky{position:fixed; inset:0; z-index:0; overflow:hidden; background:linear-gradient(160deg, #FFF3E1 0%, #FFE9D6 28%, #FFE0D6 55%, #FFEFE0 78%, #FFF8F2 100%); background-size:200% 200%; animation: driftSky 26s ease-in-out infinite alternate;}
+.sky{position:fixed; inset:0; z-index:0; overflow:hidden; background:linear-gradient(160deg, var(--sky-1) 0%, var(--sky-2) 28%, var(--sky-3) 55%, var(--sky-4) 78%, var(--sky-5) 100%); background-size:200% 200%; animation: driftSky 26s ease-in-out infinite alternate;}
 @keyframes driftSky{ from{background-position:0% 0%;} to{background-position:100% 100%;} }
 .blob{ position:absolute; border-radius:50%; filter:blur(40px); opacity:0.55; }
-.blob1{ width:420px; height:420px; background:radial-gradient(circle at 30% 30%, #FFD670, transparent 70%); top:-120px; left:-80px; animation: floatBlob 18s ease-in-out infinite; }
-.blob2{ width:360px; height:360px; background:radial-gradient(circle at 60% 40%, #FF8FA3, transparent 70%); bottom:-140px; right:-60px; animation: floatBlob 22s ease-in-out infinite reverse; }
-.blob3{ width:300px; height:300px; background:radial-gradient(circle at 50% 50%, #BEE9FF, transparent 70%); top:40%; right:15%; animation: floatBlob 20s ease-in-out infinite; }
+.blob1{ width:420px; height:420px; background:var(--blob-1); top:-120px; left:-80px; animation: floatBlob 18s ease-in-out infinite; }
+.blob2{ width:360px; height:360px; background:var(--blob-2); bottom:-140px; right:-60px; animation: floatBlob 22s ease-in-out infinite reverse; }
+.blob3{ width:300px; height:300px; background:var(--blob-3); top:40%; right:15%; animation: floatBlob 20s ease-in-out infinite; }
 @keyframes floatBlob{ 0%,100%{ transform:translate(0,0) scale(1);} 50%{ transform:translate(30px,-25px) scale(1.08);} }
-.ray{ position:absolute; top:-10%; left:50%; width:2px; height:120%; background:linear-gradient(to bottom, rgba(255,214,112,0.35), transparent); transform-origin:top center; animation: swayRay 12s ease-in-out infinite; }
+.ray{ position:absolute; top:-10%; left:50%; width:2px; height:120%; background:linear-gradient(to bottom, var(--ray-color), transparent); transform-origin:top center; animation: swayRay 12s ease-in-out infinite; }
 .ray:nth-child(1){ left:20%; animation-delay:0s; }
 .ray:nth-child(2){ left:45%; animation-delay:2s; }
 .ray:nth-child(3){ left:70%; animation-delay:4s; }
 .ray:nth-child(4){ left:88%; animation-delay:1s; }
 @keyframes swayRay{ 0%,100%{ transform:rotate(-4deg);} 50%{ transform:rotate(4deg);} }
-.sparkle{ position:absolute; width:6px; height:6px; background:#FFE066; border-radius:50%; opacity:0; box-shadow:0 0 8px 2px rgba(255,224,102,0.8); animation: twinkle 4.5s ease-in-out infinite; }
+.sparkle{ position:absolute; width:6px; height:6px; background:var(--gold); border-radius:50%; opacity:0; box-shadow:0 0 8px 2px var(--particle-glow); animation: twinkle 4.5s ease-in-out infinite; }
 @keyframes twinkle{ 0%,100%{opacity:0; transform:scale(0.5);} 50%{opacity:1; transform:scale(1.2);} }
 .petal{ position:absolute; top:-30px; font-size:18px; opacity:0.8; animation: fall linear infinite; user-select:none; pointer-events:none; }
 @keyframes fall{ 0%{ transform:translateY(0) translateX(0) rotate(0deg); opacity:0; } 8%{opacity:0.85;} 100%{ transform:translateY(110vh) translateX(40px) rotate(300deg); opacity:0; } }
+.raindrop{ position:absolute; top:-40px; width:2px; height:70px; border-radius:2px; background:linear-gradient(to bottom, transparent, var(--sunset), transparent); opacity:0.5; animation: rainFall linear infinite; pointer-events:none; }
+@keyframes rainFall{ 0%{ transform:translateY(0); opacity:0; } 10%{opacity:0.55;} 100%{ transform:translateY(112vh); opacity:0; } }
+.ripple{ position:absolute; bottom:0; width:26px; height:10px; border:2px solid var(--seafoam); border-radius:50%; opacity:0.6; animation: rippleOut 1.8s ease-out forwards; pointer-events:none; }
+@keyframes rippleOut{ 0%{ transform:scale(0.3); opacity:0.7;} 100%{ transform:scale(1.8); opacity:0; } }
 .grain{ position:fixed; inset:0; z-index:1; pointer-events:none; opacity:0.035; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
 .app{ position:relative; z-index:2; display:flex; min-height:100vh; }
-.sidebar{ width:230px; flex-shrink:0; margin:18px 0 18px 18px; background:linear-gradient(160deg, rgba(255,255,255,0.55), rgba(255,178,122,0.25)); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border:1px solid rgba(255,255,255,0.6); border-radius:28px; padding:22px 16px; display:flex; flex-direction:column; gap:22px; box-shadow:var(--shadow-soft); height:calc(100vh - 36px); position:sticky; top:18px; }
+.sidebar{ width:230px; flex-shrink:0; margin:18px 0 18px 18px; background:linear-gradient(160deg, var(--sidebar-1), var(--sidebar-2)); backdrop-filter:blur(18px); -webkit-backdrop-filter:blur(18px); border:1px solid rgba(255,255,255,0.6); border-radius:28px; padding:22px 16px; display:flex; flex-direction:column; gap:22px; box-shadow:var(--shadow-soft); height:calc(100vh - 36px); position:sticky; top:18px; }
 .brand{ display:flex; align-items:center; gap:10px; padding:0 6px; }
 .brand-mark{ font-size:26px; }
 .brand-name{ font-family:var(--font-head); font-weight:700; font-size:20px; color:var(--text); }
 .brand-sub{ font-family:var(--font-hand); font-size:14px; color:var(--text-soft); margin-top:-6px; padding-left:6px;}
-.nav{ display:flex; flex-direction:column; gap:4px; }
+.nav{ display:flex; flex-direction:column; gap:3px; flex:1; min-height:0; overflow-y:auto; padding-right:2px; margin-right:-2px; }
+.nav::-webkit-scrollbar{ width:5px; }
+.nav::-webkit-scrollbar-thumb{ background:rgba(90,75,71,0.18); border-radius:10px; }
 .nav-item{ display:flex; align-items:center; gap:12px; padding:11px 14px; border-radius:16px; background:transparent; border:none; color:var(--text); font-family:var(--font-body); font-weight:500; font-size:14.5px; text-align:left; transition:transform .25s cubic-bezier(.34,1.56,.64,1), background .2s ease, box-shadow .2s ease; position:relative; }
 .nav-item .ico{ font-size:18px; display:inline-block; transition:transform .35s cubic-bezier(.34,1.56,.64,1); }
 .nav-item:hover .ico{ transform:translateY(-3px) rotate(-8deg) scale(1.15); }
@@ -122,6 +214,81 @@ button{font-family:inherit; cursor:pointer;}
 .note-actions button{ width:28px; height:28px; border-radius:50%; border:none; background:rgba(255,255,255,0.65); font-size:13px; display:flex; align-items:center; justify-content:center; transition:transform .2s cubic-bezier(.34,1.56,.64,1), background .2s ease; }
 .note-actions button:hover{ transform:scale(1.15); background:white; }
 .note-actions button.on{ background:var(--sunset); color:white; }
+ 
+/* ================= NOTE STYLES ================= */
+/* 1. Classic Sticky — the original design, kept as the cheerful baseline */
+ 
+/* 2. Polaroid */
+.note.style-polaroid{ background:#FFFEFB !important; padding:14px 14px 18px; border-radius:3px; box-shadow:0 14px 28px rgba(60,40,20,0.16), 0 2px 6px rgba(60,40,20,0.08); }
+.note.style-polaroid .tape{ display:none; }
+.note.style-polaroid .note-top{ order:2; margin-top:12px; margin-bottom:2px; }
+.note.style-polaroid .note-body, .note.style-polaroid .note-checklist{ order:3; }
+.note.style-polaroid .note-tags{ order:4; }
+.note.style-polaroid .note-actions{ order:5; }
+.note.style-polaroid{ display:flex; flex-direction:column; }
+.note.style-polaroid::before{ content:""; order:1; display:block; width:100%; aspect-ratio:4/3; border-radius:2px; background:
+    radial-gradient(circle at 30% 20%, rgba(255,255,255,0.35), transparent 55%),
+    linear-gradient(160deg, var(--sky), var(--peach) 55%, var(--coral)); box-shadow:inset 0 0 0 1px rgba(0,0,0,0.05); }
+.note.style-polaroid::after{ content:"📌"; position:absolute; top:-13px; left:50%; transform:translateX(-50%) rotate(-6deg); font-size:19px; background:none; filter:drop-shadow(0 3px 2px rgba(0,0,0,0.25)); }
+.note.style-polaroid .note-title{ font-family:var(--font-hand); font-size:19px; font-weight:600; text-align:center; }
+ 
+/* 3. Lined Notebook */
+.note.style-lined{ background:var(--cream) !important; padding-left:36px; position:relative; background-image:repeating-linear-gradient(180deg, transparent 0 25px, rgba(120,150,190,0.22) 25px 26px); background-position:0 58px; box-shadow:var(--shadow-soft), inset 0 0 0 1px rgba(90,75,71,0.05); }
+.note.style-lined .tape{ display:none; }
+.note.style-lined::before{ content:""; position:absolute; left:22px; top:0; bottom:0; width:1.5px; background:var(--coral); opacity:0.5; }
+.note.style-lined::after{ content:""; position:absolute; left:10px; top:14px; bottom:14px; width:5px; background-image:radial-gradient(circle, rgba(90,75,71,0.16) 2px, transparent 2.4px); background-size:5px 16px; background-repeat:repeat-y; }
+.note.style-lined .note-title{ font-family:var(--font-hand); font-size:20px; font-weight:600; }
+ 
+/* 4. Grid Note */
+.note.style-grid{ background:#FDFDFC !important; background-image:
+  repeating-linear-gradient(0deg, rgba(120,150,190,0.16) 0 1px, transparent 1px 20px),
+  repeating-linear-gradient(90deg, rgba(120,150,190,0.16) 0 1px, transparent 1px 20px);
+  border:1px solid rgba(90,75,71,0.08); box-shadow:var(--shadow-tiny); }
+.note.style-grid .tape{ display:none; }
+.note.style-grid::after{ display:none; }
+.note.style-grid .note-title{ display:inline-block; position:relative; }
+.note.style-grid .note-title::after{ content:""; position:absolute; left:0; right:0; bottom:-4px; height:2px; background:repeating-linear-gradient(90deg, var(--coral) 0 4px, transparent 4px 8px); }
+ 
+/* 5. Torn Paper */
+.note.style-torn{ background:linear-gradient(170deg,#FBF2E4,var(--sand)) !important; clip-path: polygon(0% 4%, 5% 0%, 11% 3%, 18% 0.5%, 25% 3.5%, 33% 0%, 41% 3%, 49% 0.5%, 57% 3.5%, 65% 0%, 73% 3%, 81% 0.5%, 89% 3.5%, 95% 0.5%, 100% 3%, 100% 97%, 95% 100%, 88% 97.5%, 80% 100%, 72% 97%, 64% 100%, 56% 97.5%, 48% 100%, 40% 97%, 32% 100%, 24% 97.5%, 16% 100%, 8% 97%, 0% 100%); padding:26px 20px 24px; box-shadow:none; filter:drop-shadow(0 10px 18px rgba(90,60,30,0.16)); }
+.note.style-torn .tape{ display:none; }
+.note.style-torn::after{ display:none; }
+.note.style-torn .note-title{ font-family:var(--font-hand); font-size:19px; }
+ 
+/* 6. Washi Tape */
+.note.style-washi{ box-shadow:var(--shadow-soft); }
+.note.style-washi .tape{ width:92px; height:28px; top:-12px; background-image:repeating-linear-gradient(45deg, rgba(255,255,255,0.6) 0 5px, transparent 5px 10px) !important; box-shadow:0 4px 8px rgba(0,0,0,0.12); border-radius:2px; }
+.note.style-washi::before{ content:""; position:absolute; bottom:10px; right:-6px; width:34px; height:16px; background-image:repeating-linear-gradient(-45deg, rgba(255,255,255,0.55) 0 4px, transparent 4px 8px); background-color:var(--lavender); transform:rotate(8deg); border-radius:2px; opacity:0.9; box-shadow:0 3px 6px rgba(0,0,0,0.1); }
+ 
+/* 7. Checklist style card */
+.note.style-checklist{ border-radius:6px 6px 18px 18px; box-shadow:var(--shadow-soft); }
+.note.style-checklist .tape{ width:40px; height:40px; top:-14px; left:14px; transform:none; border-radius:50%; background:var(--gold) !important; display:flex; }
+.note.style-checklist .tape::after{ content:"☑"; display:block; width:100%; text-align:center; line-height:40px; font-size:17px; color:#fff; }
+.note.style-checklist .note-title{ padding-left:30px; }
+ 
+/* 8. Scrapbook */
+.note.style-scrapbook{ overflow:visible; }
+.note.style-scrapbook::before{ content:""; position:absolute; inset:8px -8px -10px 10px; background:var(--lavender); border-radius:6px 6px 18px 18px; opacity:0.65; transform:rotate(5deg); z-index:-1; box-shadow:0 6px 14px rgba(0,0,0,0.08); }
+.note.style-scrapbook::after{ content:"🌸"; position:absolute; bottom:-10px; right:8px; font-size:20px; filter:drop-shadow(0 2px 2px rgba(0,0,0,0.15)); background:none; }
+.note.style-scrapbook .tape{ width:70px; transform:translateX(-50%) rotate(7deg); box-shadow:0 3px 6px rgba(0,0,0,0.12); }
+.note.style-scrapbook .note-title{ font-family:var(--font-hand); font-size:19px; }
+ 
+/* 9. Speech Bubble */
+.note.style-bubble{ border-radius:24px 24px 24px 6px !important; box-shadow:var(--shadow-soft); padding-bottom:26px; }
+.note.style-bubble .tape{ display:none; }
+.note.style-bubble::after{ content:""; position:absolute; left:24px; bottom:-13px; width:0; height:0; border:11px solid transparent; border-top-color:var(--note-bg, var(--peach)); border-bottom:none; background:none; filter: drop-shadow(0 3px 1px rgba(0,0,0,0.05)); }
+.note.style-bubble .note-title{ text-align:center; }
+.note.style-bubble .note-body{ text-align:center; }
+ 
+/* 10. Bulletin Board */
+.note.style-bulletin{ background:linear-gradient(170deg,#E4C79E,#D8B788) !important; background-image:
+    radial-gradient(circle, rgba(90,60,30,0.18) 1px, transparent 1.4px), linear-gradient(170deg,#E4C79E,#D8B788);
+  background-size:9px 9px, 100% 100%; border:1px solid rgba(90,60,30,0.2); padding:30px 14px 16px; box-shadow:0 12px 22px rgba(70,45,20,0.18); }
+.note.style-bulletin .tape{ display:none; }
+.note.style-bulletin::before{ content:""; position:absolute; top:11px; left:50%; transform:translateX(-50%); width:15px; height:15px; border-radius:50%; background:radial-gradient(circle at 32% 28%, #FFA0A0, #C0392B 75%); box-shadow:0 3px 5px rgba(0,0,0,0.35), inset 0 -2px 3px rgba(0,0,0,0.2); }
+.note.style-bulletin::after{ display:none; }
+.note.style-bulletin .note-top, .note.style-bulletin .note-body, .note.style-bulletin .note-checklist{ background:rgba(255,255,255,0.92); border-radius:9px; padding:8px 10px; box-shadow:0 2px 5px rgba(70,45,20,0.1); }
+.note.style-bulletin .note-top{ margin-bottom:8px; }
 .empty{ text-align:center; padding:70px 20px; }
 .empty-illustration{ font-size:64px; margin-bottom:10px; animation:bob 3s ease-in-out infinite; }
 @keyframes bob{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
@@ -134,7 +301,7 @@ button{font-family:inherit; cursor:pointer;}
 .fab:active{ transform:scale(0.92) rotate(90deg); }
 .overlay{ position:fixed; inset:0; background:rgba(90,60,45,0.28); backdrop-filter:blur(4px); z-index:50; display:flex; align-items:center; justify-content:center; padding:20px; opacity:0; pointer-events:none; transition:opacity .25s ease; }
 .overlay.open{ opacity:1; pointer-events:auto; }
-.modal{ width:100%; max-width:480px; background:var(--cream); border-radius:28px; padding:26px; box-shadow:var(--shadow-lift); transform:translateY(16px) scale(0.96); transition:transform .3s cubic-bezier(.2,.9,.3,1.2); max-height:88vh; overflow-y:auto; }
+.modal{ width:100%; max-width:540px; background:var(--cream); border-radius:28px; padding:26px; box-shadow:var(--shadow-lift); transform:translateY(16px) scale(0.96); transition:transform .3s cubic-bezier(.2,.9,.3,1.2); max-height:88vh; overflow-y:auto; }
 .overlay.open .modal{ transform:translateY(0) scale(1); }
 .modal h3{ font-family:var(--font-head); margin:0 0 16px; font-size:19px; }
 .field{ margin-bottom:14px; }
@@ -142,6 +309,32 @@ button{font-family:inherit; cursor:pointer;}
 .field input[type=text], .field textarea{ width:100%; border:1.5px solid rgba(90,75,71,0.14); border-radius:14px; padding:11px 14px; font-family:var(--font-body); font-size:14px; color:var(--text); background:white; resize:vertical; transition:border-color .2s ease; }
 .field input[type=text]:focus, .field textarea:focus{ border-color:var(--sunset); }
 .color-row{ display:flex; gap:9px; flex-wrap:wrap; }
+.style-row{ display:grid; grid-template-columns:repeat(5, 1fr); gap:8px; }
+.style-card{ border-radius:14px; border:2px solid transparent; background:rgba(255,255,255,0.5); display:flex; flex-direction:column; align-items:center; gap:5px; padding:7px 5px 8px; cursor:pointer; transition:transform .2s cubic-bezier(.34,1.56,.64,1), border-color .2s ease, box-shadow .2s ease; position:relative; font-family:var(--font-body); }
+.style-card:hover{ transform:translateY(-3px); box-shadow:var(--shadow-tiny); }
+.style-card.sel{ border-color:var(--text); background:#fff; box-shadow:var(--shadow-soft); }
+.style-card .sc-num{ position:absolute; top:4px; left:4px; width:14px; height:14px; border-radius:50%; background:var(--sunset); color:#fff; font-size:8.5px; display:flex; align-items:center; justify-content:center; font-weight:700; z-index:2; box-shadow:0 1px 3px rgba(0,0,0,0.2); }
+.style-card .sc-label{ font-size:9.5px; font-weight:600; color:var(--text-soft); text-align:center; line-height:1.15; }
+.style-card.sel .sc-label{ color:var(--text); }
+.sc-preview{ width:100%; height:38px; border-radius:9px; position:relative; overflow:hidden; box-shadow:inset 0 0 0 1px rgba(90,75,71,0.08), 0 2px 5px rgba(90,75,71,0.08); }
+.sc-preview.p-sticky{ background:linear-gradient(160deg,#FFE3C7,#FFD9B8); }
+.sc-preview.p-sticky::after{ content:""; position:absolute; top:2px; left:50%; transform:translateX(-50%) rotate(-4deg); width:20px; height:7px; background:rgba(255,178,122,0.85); border-radius:2px; }
+.sc-preview.p-polaroid{ background:#fff; }
+.sc-preview.p-polaroid::before{ content:""; position:absolute; top:3px; left:4px; right:4px; height:22px; border-radius:2px; background:linear-gradient(160deg,#BEE9FF,#FFB27A); }
+.sc-preview.p-lined{ background:#FFFCF7; background-image:repeating-linear-gradient(180deg, transparent 0 8px, rgba(90,75,71,0.16) 8px 9px); }
+.sc-preview.p-lined::before{ content:""; position:absolute; top:0; bottom:0; left:8px; width:1.5px; background:#FF8FA3; opacity:0.6; }
+.sc-preview.p-grid{ background:#FDFDFB; background-image:repeating-linear-gradient(0deg, rgba(90,75,71,0.14) 0 1px, transparent 1px 8px), repeating-linear-gradient(90deg, rgba(90,75,71,0.14) 0 1px, transparent 1px 8px); }
+.sc-preview.p-torn{ background:#F6E7D8; clip-path:polygon(0 12%,10% 4%,20% 12%,30% 3%,40% 10%,50% 2%,60% 11%,70% 4%,80% 12%,90% 3%,100% 10%,100% 100%,0 100%); }
+.sc-preview.p-washi{ background:linear-gradient(160deg,#EEE5FF,#DCCBFF); }
+.sc-preview.p-washi::after{ content:""; position:absolute; top:1px; left:50%; transform:translateX(-50%) rotate(-5deg); width:26px; height:9px; background-image:repeating-linear-gradient(45deg,#fff 0 3px, transparent 3px 6px); background-color:rgba(255,182,193,0.9); border-radius:2px; }
+.sc-preview.p-checklist{ background:#EAFBF1; border-top:4px solid #FFD670; }
+.sc-preview.p-checklist::after{ content:"✓ ✓ ○"; position:absolute; bottom:4px; left:6px; font-size:7px; letter-spacing:2px; color:#5A4B47; opacity:0.55; }
+.sc-preview.p-scrapbook{ background:#EEE5FF; }
+.sc-preview.p-scrapbook::before{ content:""; position:absolute; inset:4px 8px 2px 4px; background:#FFDCE3; border-radius:4px; transform:rotate(4deg); }
+.sc-preview.p-scrapbook::after{ content:"🌸"; position:absolute; bottom:0px; right:2px; font-size:11px; }
+.sc-preview.p-bubble{ background:#BEE9FF; border-radius:14px 14px 14px 3px; }
+.sc-preview.p-bulletin{ background:#DFC49C; background-image:radial-gradient(circle, rgba(90,60,30,0.25) 1px, transparent 1.4px); background-size:6px 6px; }
+.sc-preview.p-bulletin::after{ content:""; position:absolute; top:3px; left:50%; transform:translateX(-50%); width:7px; height:7px; border-radius:50%; background:radial-gradient(circle at 35% 30%, #FF8787, #C0392B); box-shadow:0 1px 2px rgba(0,0,0,0.35); }
 .swatch{ width:32px; height:32px; border-radius:10px; border:2px solid transparent; transition:transform .2s cubic-bezier(.34,1.56,.64,1); position:relative;}
 .swatch:hover{ transform:scale(1.15) rotate(-6deg); }
 .swatch.sel{ border-color:var(--text); transform:scale(1.1); }
@@ -166,6 +359,120 @@ button{font-family:inherit; cursor:pointer;}
 .toast button{ background:none; border:none; color:var(--sunset); font-weight:700; font-size:12.5px; }
 .confetti-piece{ position:fixed; top:-10px; z-index:120; border-radius:2px; pointer-events:none; animation:confettiFall 1.8s ease-in forwards; }
 @keyframes confettiFall{ to{ transform:translateY(100vh) rotate(540deg); opacity:0; } }
+.settings-panel{ max-width:720px; }
+.settings-block{ background:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.7); border-radius:22px; padding:22px 22px 24px; margin-bottom:20px; backdrop-filter:blur(10px); box-shadow:var(--shadow-tiny); }
+.settings-block h3{ font-family:var(--font-head); font-size:15.5px; margin:0 0 4px; }
+.settings-block .settings-desc{ font-size:12.5px; color:var(--text-soft); margin:0 0 16px; }
+.theme-grid{ display:grid; grid-template-columns:repeat(auto-fill, minmax(148px,1fr)); gap:12px; }
+.theme-card{ position:relative; border-radius:18px; border:2px solid transparent; padding:14px 12px 12px; cursor:pointer; text-align:left; overflow:hidden; transition:transform .25s cubic-bezier(.34,1.56,.64,1), border-color .25s ease, box-shadow .25s ease; box-shadow:var(--shadow-tiny); }
+.theme-card:hover{ transform:translateY(-3px) scale(1.02); }
+.theme-card.sel{ border-color:var(--text); box-shadow:var(--shadow-lift); }
+.theme-card .tc-emoji{ font-size:26px; display:block; margin-bottom:6px; }
+.theme-card .tc-name{ font-family:var(--font-head); font-weight:700; font-size:14px; display:block; }
+.theme-card .tc-mood{ font-family:var(--font-body); font-size:11.5px; opacity:0.85; margin-top:2px; display:block; }
+.theme-card .tc-check{ position:absolute; top:10px; right:10px; width:20px; height:20px; border-radius:50%; background:rgba(255,255,255,0.85); display:flex; align-items:center; justify-content:center; font-size:11px; opacity:0; transform:scale(0.6); transition:all .25s cubic-bezier(.34,1.56,.64,1); }
+.theme-card.sel .tc-check{ opacity:1; transform:scale(1); }
+.theme-card.auto{ background:linear-gradient(135deg, rgba(255,255,255,0.7), rgba(255,255,255,0.3)); }
+.settings-note{ font-size:12px; color:var(--text-soft); margin-top:14px; display:flex; align-items:center; gap:6px; }
+/* ================= PROFILE / CLOUD SYNC ================= */
+.profile-card{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:16px; background:rgba(255,255,255,0.45); margin-bottom:14px; }
+.profile-avatar{ width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg, var(--peach), var(--coral)); display:flex; align-items:center; justify-content:center; font-size:15px; color:#fff; flex-shrink:0; overflow:hidden; }
+.profile-avatar img{ width:100%; height:100%; object-fit:cover; }
+.profile-meta{ flex:1; min-width:0; }
+.profile-name{ font-size:12.5px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.cloud-status{ font-size:10.5px; color:var(--text-soft); display:flex; align-items:center; gap:4px; }
+.cloud-status.synced{ color:#4CA36B; }
+.cloud-status.syncing{ color:#C79A2E; }
+.cloud-status.offline{ color:#C1592B; }
+.signin-btn{ width:100%; padding:9px; border-radius:14px; border:1.5px solid rgba(90,75,71,0.15); background:#fff; font-size:12px; font-weight:600; color:var(--text); cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; transition:transform .2s ease; }
+.signin-btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow-tiny); }
+.signout-btn{ background:none; border:none; font-size:10.5px; color:var(--text-soft); text-decoration:underline; cursor:pointer; padding:0; }
+ 
+/* ================= QUOTE CARD ================= */
+.stat-quote-card{ display:flex; flex-direction:column; gap:6px; }
+.stat-quote-text{ transition:opacity .35s ease, transform .35s ease; }
+.stat-quote-text.fading{ opacity:0; transform:translateY(4px); }
+.stat-quote-author{ font-size:10.5px; color:var(--text-soft); font-style:italic; }
+.quote-actions{ display:flex; gap:6px; margin-top:2px; }
+.qa-btn{ border:none; background:rgba(255,255,255,0.6); width:24px; height:24px; border-radius:8px; font-size:11px; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:transform .15s ease, background .15s ease; }
+.qa-btn:hover{ transform:translateY(-1px) scale(1.08); background:#fff; }
+.qa-btn.active{ background:var(--coral); color:#fff; }
+ 
+/* ================= ON THIS DAY ================= */
+.otd-card{ background:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.7); border-radius:22px; padding:18px 20px; margin-bottom:20px; backdrop-filter:blur(10px); box-shadow:var(--shadow-tiny); }
+.otd-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:10px; }
+.otd-head h3{ font-family:var(--font-head); font-size:15px; margin:0; }
+.otd-list{ display:flex; gap:12px; overflow-x:auto; padding-bottom:4px; }
+.otd-item{ flex:0 0 220px; background:#fff; border-radius:16px; padding:14px; box-shadow:var(--shadow-tiny); position:relative; }
+.otd-item .otd-year{ font-size:10.5px; color:var(--text-soft); font-weight:700; margin-bottom:4px; }
+.otd-item .otd-title{ font-family:var(--font-head); font-size:13.5px; margin:0 0 4px; }
+.otd-item .otd-snippet{ font-size:11.5px; color:var(--text-soft); line-height:1.4; max-height:48px; overflow:hidden; }
+.otd-item .otd-actions{ display:flex; gap:5px; margin-top:8px; }
+.otd-item .otd-actions button{ border:none; background:var(--cream); border-radius:8px; font-size:11px; width:24px; height:24px; cursor:pointer; }
+.otd-empty{ text-align:center; padding:14px; color:var(--text-soft); font-size:12.5px; }
+ 
+/* ================= MEMORY GARDEN ================= */
+.garden-scene{ position:relative; width:100%; min-height:320px; border-radius:26px; overflow:hidden; background:linear-gradient(180deg, var(--sky-2) 0%, var(--sky-4) 55%, #DCEFC8 100%); box-shadow:var(--shadow-soft); padding:20px; }
+.garden-ground{ position:absolute; bottom:0; left:0; right:0; height:34%; background:linear-gradient(180deg, #BFE3A0, #9FCB7E); border-radius:0 0 26px 26px; }
+.garden-plant{ position:absolute; font-size:34px; filter:drop-shadow(0 4px 4px rgba(0,0,0,0.15)); animation: gardenSway 5s ease-in-out infinite; cursor:default; transition:filter .3s ease, opacity .3s ease; }
+.garden-plant.locked{ filter:grayscale(1) opacity(0.28); animation:none; }
+@keyframes gardenSway{ 0%,100%{ transform:rotate(-3deg) translateY(0);} 50%{ transform:rotate(3deg) translateY(-4px);} }
+.garden-tooltip{ position:absolute; bottom:110%; left:50%; transform:translateX(-50%); background:var(--text); color:#fff; font-size:11px; padding:6px 10px; border-radius:10px; white-space:nowrap; opacity:0; pointer-events:none; transition:opacity .2s ease; z-index:5; }
+.garden-plant:hover .garden-tooltip{ opacity:1; }
+.garden-caption{ text-align:center; margin-top:14px; font-size:13px; color:var(--text-soft); }
+.garden-progress-bar{ height:8px; border-radius:6px; background:rgba(90,75,71,0.12); overflow:hidden; margin-top:10px; }
+.garden-progress-fill{ height:100%; background:linear-gradient(90deg, var(--gold), var(--coral)); border-radius:6px; transition:width .8s ease; }
+ 
+/* ================= MOOD PICKER / BADGE ================= */
+.mood-row{ display:flex; gap:6px; flex-wrap:wrap; }
+.mood-chip{ border:2px solid transparent; background:rgba(255,255,255,0.6); border-radius:12px; padding:6px 9px; font-size:18px; cursor:pointer; transition:transform .2s cubic-bezier(.34,1.56,.64,1), border-color .2s ease; position:relative; }
+.mood-chip:hover{ transform:translateY(-2px); }
+.mood-chip.sel{ border-color:var(--text); background:#fff; }
+.mood-chip .mood-name{ display:block; font-size:8px; margin-top:2px; color:var(--text-soft); font-family:var(--font-body); }
+.note-mood-badge{ font-size:15px; }
+ 
+/* ================= MOOD INSIGHTS ================= */
+.insight-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px; }
+.insight-card{ background:rgba(255,255,255,0.5); border:1px solid rgba(255,255,255,0.7); border-radius:20px; padding:16px 18px; backdrop-filter:blur(10px); box-shadow:var(--shadow-tiny); }
+.insight-card h4{ font-family:var(--font-head); font-size:13.5px; margin:0 0 12px; }
+.mood-bar-row{ display:flex; align-items:center; gap:8px; margin-bottom:8px; font-size:12px; }
+.mood-bar-row .mb-emoji{ width:20px; }
+.mood-bar-track{ flex:1; height:10px; border-radius:6px; background:rgba(90,75,71,0.08); overflow:hidden; }
+.mood-bar-fill{ height:100%; border-radius:6px; background:linear-gradient(90deg, var(--peach), var(--coral)); transition:width .6s ease; }
+.mood-bar-row .mb-count{ width:18px; text-align:right; color:var(--text-soft); font-size:11px; }
+.mood-cal{ display:grid; grid-template-columns:repeat(7, 1fr); gap:4px; }
+.mood-cal-cell{ aspect-ratio:1; border-radius:8px; background:rgba(90,75,71,0.05); display:flex; align-items:center; justify-content:center; font-size:13px; }
+.mood-cal-cell.has-mood{ background:rgba(255,178,122,0.18); }
+.mood-timeline{ display:flex; flex-direction:column; gap:10px; max-height:260px; overflow-y:auto; }
+.timeline-item{ display:flex; gap:10px; align-items:flex-start; font-size:12px; }
+.timeline-item .ti-emoji{ font-size:17px; }
+.timeline-item .ti-date{ color:var(--text-soft); font-size:10.5px; }
+.insight-msg{ background:rgba(255,214,112,0.18); border-radius:12px; padding:10px 12px; font-size:12px; margin-bottom:10px; }
+.insight-msg:last-child{ margin-bottom:0; }
+.mood-stat-big{ font-size:26px; font-weight:700; font-family:var(--font-head); }
+ 
+/* ================= REMINDERS ================= */
+.switch{ position:relative; width:42px; height:24px; flex-shrink:0; }
+.switch input{ opacity:0; width:0; height:0; }
+.switch .slider{ position:absolute; inset:0; background:rgba(90,75,71,0.2); border-radius:24px; cursor:pointer; transition:background .25s ease; }
+.switch .slider::before{ content:""; position:absolute; width:18px; height:18px; left:3px; top:3px; background:#fff; border-radius:50%; transition:transform .25s cubic-bezier(.34,1.56,.64,1); box-shadow:0 1px 3px rgba(0,0,0,0.2); }
+.switch input:checked + .slider{ background:var(--sunset); }
+.switch input:checked + .slider::before{ transform:translateX(18px); }
+.settings-row{ display:flex; align-items:center; justify-content:space-between; gap:10px; padding:10px 0; border-bottom:1px solid rgba(90,75,71,0.08); }
+.settings-row:last-child{ border-bottom:none; }
+.settings-row .sr-label{ font-size:13px; font-weight:600; }
+.settings-row .sr-sub{ font-size:11px; color:var(--text-soft); margin-top:2px; }
+.time-options{ display:flex; gap:6px; flex-wrap:wrap; }
+.time-opt{ border:1.5px solid rgba(90,75,71,0.15); background:#fff; border-radius:10px; padding:6px 10px; font-size:11.5px; cursor:pointer; font-weight:600; color:var(--text-soft); }
+.time-opt.sel{ background:var(--sunset); color:#fff; border-color:transparent; }
+.reminder-banner{ display:flex; align-items:center; gap:10px; background:linear-gradient(135deg, var(--peach), var(--coral)); color:#fff; padding:12px 16px; border-radius:18px; margin-bottom:16px; box-shadow:var(--shadow-soft); animation: slideDown .4s cubic-bezier(.2,.9,.3,1.2); }
+@keyframes slideDown{ from{ opacity:0; transform:translateY(-10px);} to{ opacity:1; transform:translateY(0);} }
+.reminder-banner button{ margin-left:auto; background:rgba(255,255,255,0.25); border:none; color:#fff; width:24px; height:24px; border-radius:8px; cursor:pointer; }
+ 
+/* ================= SKELETON LOADERS ================= */
+.skeleton{ background:linear-gradient(90deg, rgba(90,75,71,0.06) 25%, rgba(90,75,71,0.12) 37%, rgba(90,75,71,0.06) 63%); background-size:400% 100%; animation: skeletonShine 1.4s ease infinite; border-radius:16px; }
+@keyframes skeletonShine{ 0%{ background-position:100% 0;} 100%{ background-position:-100% 0;} }
+.skeleton-card{ height:180px; }
 .bottom-nav{ display:none; }
 @media (max-width:880px){
   .sidebar{ display:none; }
@@ -191,12 +498,15 @@ button{font-family:inherit; cursor:pointer;}
       <div class="brand"><span class="brand-mark">☀️</span><span class="brand-name">Memoir</span></div>
       <div class="brand-sub">a little sunshine for your thoughts</div>
     </div>
+    <div class="profile-card" id="profileCard"></div>
     <nav class="nav" id="nav">
       <button class="nav-item" data-view="home"><span class="ico">🏠</span> Home</button>
       <button class="nav-item" data-view="notes"><span class="ico">📝</span> Notes <span class="nav-count" id="count-notes"></span></button>
       <button class="nav-item" data-view="pinned"><span class="ico">📌</span> Pinned <span class="nav-count" id="count-pinned"></span></button>
       <button class="nav-item" data-view="favorites"><span class="ico">⭐</span> Favorites <span class="nav-count" id="count-favorites"></span></button>
       <button class="nav-item" data-view="categories"><span class="ico">🗂</span> Categories</button>
+      <button class="nav-item" data-view="garden"><span class="ico">🌱</span> Garden</button>
+      <button class="nav-item" data-view="moods"><span class="ico">😊</span> Moods</button>
       <button class="nav-item" data-view="archive"><span class="ico">📦</span> Archive <span class="nav-count" id="count-archive"></span></button>
       <button class="nav-item" data-view="trash"><span class="ico">🗑</span> Trash <span class="nav-count" id="count-trash"></span></button>
       <button class="nav-item" data-view="settings"><span class="ico">⚙</span> Settings</button>
@@ -214,12 +524,24 @@ button{font-family:inherit; cursor:pointer;}
         <input class="search" id="searchInput" type="text" placeholder="What would you like to remember today?">
       </div>
     </div>
+    <div id="reminderBannerWrap"></div>
     <div class="stat-strip">
       <div class="stat-card"><div class="stat-label">📖 Today's notes</div><div class="stat-value" id="statToday">0</div></div>
       <div class="stat-card"><div class="stat-label">📌 Pinned</div><div class="stat-value" id="statPinned">0</div></div>
-      <div class="stat-card"><div class="stat-label">🔥 Streak</div><div class="stat-value" id="statStreak">3 days</div></div>
-      <div class="stat-card"><div class="stat-label">🍋 Daily quote</div><div class="stat-quote" id="statQuote">"Collect moments, not things."</div></div>
+      <div class="stat-card"><div class="stat-label">🔥 Streak</div><div class="stat-value" id="statStreak">0 days</div></div>
+      <div class="stat-card stat-quote-card">
+        <div class="stat-label">🍋 Daily quote</div>
+        <div class="stat-quote stat-quote-text" id="statQuote">"Collect moments, not things."</div>
+        <div class="stat-quote-author" id="statQuoteAuthor"></div>
+        <div class="quote-actions">
+          <button class="qa-btn" id="qaFav" title="Save favorite">♡</button>
+          <button class="qa-btn" id="qaNext" title="Generate another">↻</button>
+          <button class="qa-btn" id="qaCopy" title="Copy quote">📋</button>
+          <button class="qa-btn" id="qaShare" title="Share quote">📤</button>
+        </div>
+      </div>
     </div>
+    <div id="otdWrap"></div>
     <div class="section-head">
       <h2 id="sectionTitle">Today's notes</h2>
       <div class="chip-row" id="chipRow"></div>
@@ -256,6 +578,14 @@ button{font-family:inherit; cursor:pointer;}
       <button class="add-item-btn" id="addItemBtn">＋ Add item</button>
     </div>
     <div class="field">
+      <label>How are you feeling? (optional)</label>
+      <div class="mood-row" id="moodRow"></div>
+    </div>
+    <div class="field">
+      <label>Note style</label>
+      <div class="style-row" id="styleRow"></div>
+    </div>
+    <div class="field">
       <label>Color</label>
       <div class="color-row" id="colorRow"></div>
     </div>
@@ -281,34 +611,251 @@ const NOTE_COLORS = {
   cream:    { bg:'#FFFBF5', tape:'#E8D2B0', label:'🥥 Cream'    },
   lavender: { bg:'#EEE5FF', tape:'#C6AEF0', label:'💜 Lavender' },
 };
-const QUOTES = [
-  '"Collect moments, not things."',
-  '"Sunshine is the best kind of ink."',
-  '"Slow down, the lemonade is cold."',
-  '"Small notes, big memories."',
-  '"Golden hour, golden thoughts."',
-  '"Every summer needs a scrapbook."'
+const NOTE_STYLES = [
+  { key:'sticky',    icon:'📝', label:'Classic Sticky'  },
+  { key:'polaroid',  icon:'🖼️', label:'Polaroid'        },
+  { key:'lined',     icon:'📓', label:'Lined Notebook'  },
+  { key:'grid',      icon:'📐', label:'Grid Note'       },
+  { key:'torn',      icon:'📄', label:'Torn Paper'      },
+  { key:'washi',     icon:'🎀', label:'Washi Tape'      },
+  { key:'checklist', icon:'☑️', label:'Checklist'       },
+  { key:'scrapbook', icon:'🌷', label:'Scrapbook'       },
+  { key:'bubble',    icon:'💬', label:'Speech Bubble'   },
+  { key:'bulletin',  icon:'📌', label:'Bulletin Board'  },
 ];
-const PETALS = ['🌼','🌸','🌿'];
-
-let notes = [];
+const THEMES = {
+  spring: {
+    label:'Spring', brandMark:'🌸', mood:'Fresh · Blooming · Hopeful',
+    welcomeTitle:'Good Morning 🌸', welcomeSub:'Every bloom begins with a small seed.',
+    quotes:['"Every bloom begins with a small seed."','"Petals fall so new ones can grow."','"Spring whispers, and the garden listens."'],
+    particleMode:'fall', particleInterval:2600, particles:['🌸','🦋','🌷','🍃'],
+    stickyOrder:['coral','lavender','mint','cream'],
+    empty:{
+      home:['🌱','Every idea begins to bloom.'], notes:['🌱','Every idea begins to bloom.'],
+      pinned:['📌','Pin your favorite blooms to keep them close'], favorites:['⭐','Star the notes that make you smile'],
+      archive:['📦','Nothing tucked away just yet'], trash:['🗑️','Your trash is as fresh as spring rain'],
+      categories:['🗂️','Add tags to your notes to see them here']
+    }
+  },
+  summer: {
+    label:'Summer', brandMark:'☀️', mood:'Warm · Joyful · Creative',
+    welcomeTitle:'Good Morning ☀', welcomeSub:"It's a beautiful day to create.",
+    quotes:['"Every summer needs a scrapbook."','"Collect moments, not things."','"Sunshine is the best kind of ink."','"Golden hour, golden thoughts."'],
+    particleMode:'fall', particleInterval:3200, particles:['🌼','🌸','✨'],
+    stickyOrder:['peach','coral','butter','sky'],
+    empty:{
+      home:['🌤️','Every great idea starts with a little sunshine ☀️'], notes:['🖋️','Every great idea starts with a little sunshine ☀️'],
+      pinned:['📌','Pin your favorite notes to keep them close'], favorites:['⭐','Star the notes that make you smile'],
+      archive:['📦','Nothing tucked away just yet'], trash:['🗑️','Your trash is as clean as a beach at sunrise'],
+      categories:['🗂️','Add tags to your notes to see them here']
+    }
+  },
+  monsoon: {
+    label:'Monsoon', brandMark:'🌧️', mood:'Peaceful · Calm · Reflective',
+    welcomeTitle:'Welcome Back 🌧', welcomeSub:'Some ideas grow best on rainy days.',
+    quotes:['"Some ideas grow best on rainy days."','"Let your thoughts fall like rain."','"Quiet skies, clear thoughts."'],
+    particleMode:'rain', particleInterval:170, particles:['💧'],
+    stickyOrder:['sky','cream','mint','lavender'],
+    empty:{
+      home:['☁️','Rainy days inspire beautiful thoughts.'], notes:['☁️','Rainy days inspire beautiful thoughts.'],
+      pinned:['📌','Pin your favorite notes to keep them close'], favorites:['⭐','Star the notes that make you smile'],
+      archive:['📦','Nothing tucked away just yet'], trash:['🗑️','Your trash is as clear as after the rain'],
+      categories:['🗂️','Add tags to your notes to see them here']
+    }
+  },
+  autumn: {
+    label:'Autumn', brandMark:'🍂', mood:'Cozy · Warm · Reflective',
+    welcomeTitle:'Good Evening 🍂', welcomeSub:'Collect moments like autumn leaves.',
+    quotes:['"Collect moments like autumn leaves."','"Every leaf that falls makes room for new light."','"Cozy up with your thoughts."'],
+    particleMode:'fall', particleInterval:2400, particles:['🍁','🍂','🌰'],
+    stickyOrder:['orange','butter','peach','cream'],
+    empty:{
+      home:['🍂','Gather your ideas like falling leaves.'], notes:['🍂','Gather your ideas like falling leaves.'],
+      pinned:['📌','Pin your favorite notes to keep them close'], favorites:['⭐','Star the notes that make you smile'],
+      archive:['📦','Nothing tucked away just yet'], trash:['🗑️','Your trash has gone with the wind'],
+      categories:['🗂️','Add tags to your notes to see them here']
+    }
+  },
+  winter: {
+    label:'Winter', brandMark:'❄️', mood:'Minimal · Peaceful · Elegant',
+    welcomeTitle:'Stay Cozy ❄', welcomeSub:'Quiet moments create the brightest memories.',
+    quotes:['"Quiet moments create the brightest memories."','"Warm ideas shine brightest in winter."','"Let it snow, let ideas glow."'],
+    particleMode:'fall', particleInterval:2200, particles:['❄️','❅','✨'],
+    stickyOrder:['sky','cream','lavender','mint'],
+    empty:{
+      home:['❄️','Warm ideas shine brightest in winter.'], notes:['❄️','Warm ideas shine brightest in winter.'],
+      pinned:['📌','Pin your favorite notes to keep them close'], favorites:['⭐','Star the notes that make you smile'],
+      archive:['📦','Nothing tucked away just yet'], trash:['🗑️','Your trash is buried in snow'],
+      categories:['🗂️','Add tags to your notes to see them here']
+    }
+  }
+};
+const SEASON_ORDER = ['spring','summer','monsoon','autumn','winter'];
+const THEME_MODE_KEY = 'memoir-theme-mode';
+let themeMode = localStorage.getItem(THEME_MODE_KEY) || 'auto';
+let activeTheme = 'summer';
+function seasonForMonth(m){ // m = 0..11
+  if(m>=2 && m<=4) return 'spring';
+  if(m>=5 && m<=7) return 'summer';
+  if(m>=8 && m<=10) return 'autumn';
+  return 'winter';
+}
+function autoSeason(){ return seasonForMonth(new Date().getMonth()); }
+function resolveTheme(){ return themeMode==='auto' ? autoSeason() : themeMode; }
+ 
+/* ================= MEMORY GARDEN ================= */
+const GARDEN_MILESTONES = [
+  { min:1,   emoji:'🌱', label:'Sprout',           msg:'Your first memory took root.',            left:'10%', bottom:'6%'  },
+  { min:10,  emoji:'🌸', label:'Bloom',             msg:'Your thoughts helped this flower bloom.', left:'26%', bottom:'4%'  },
+  { min:25,  emoji:'🌿', label:'Bushes',            msg:'25 memories deep — these bushes are thriving.', left:'42%', bottom:'2%' },
+  { min:50,  emoji:'🦋', label:'Butterflies',       msg:'Butterflies came to visit your 50 memories.', left:'58%', bottom:'22%' },
+  { min:75,  emoji:'🌲', label:'Small tree',        msg:'A small tree, grown from 75 memories.',   left:'74%', bottom:'2%'  },
+  { min:100, emoji:'🌳', label:'Flourishing tree',  msg:'This tree represents 100 memories.',       left:'88%', bottom:'0%'  },
+];
+const GARDEN_STREAK_BONUSES = [
+  { min:3,  emoji:'🐦', label:'Birds',     msg:'A 3-day streak brought the birds around.', left:'20%', top:'14%' },
+  { min:7,  emoji:'🏮', label:'Lanterns',  msg:'A week-long streak lit these lanterns.',   left:'50%', top:'8%'  },
+  { min:14, emoji:'✨', label:'Fireflies', msg:'Two weeks strong — fireflies came to celebrate.', left:'78%', top:'18%' },
+];
+const SEASON_GARDEN_SKIN = {
+  spring:  { ground:'linear-gradient(180deg, #F6DFF2, #E3B9DC)', sky:'linear-gradient(180deg, var(--sky-2), var(--sky-4))' },
+  summer:  { ground:'linear-gradient(180deg, #BFE3A0, #9FCB7E)', sky:'linear-gradient(180deg, var(--sky-2), var(--sky-4))' },
+  monsoon: { ground:'linear-gradient(180deg, #9FB9C4, #7C9CA8)', sky:'linear-gradient(180deg, var(--sky-2), var(--sky-4))' },
+  autumn:  { ground:'linear-gradient(180deg, #E3B98A, #C98B5A)', sky:'linear-gradient(180deg, var(--sky-2), var(--sky-4))' },
+  winter:  { ground:'linear-gradient(180deg, #EAF3FB, #C9DCEE)', sky:'linear-gradient(180deg, var(--sky-2), var(--sky-4))' },
+};
+ 
+/* ================= MOOD TRACKING ================= */
+const MOODS = [
+  { key:'happy',      emoji:'😊', label:'Happy',      score:5 },
+  { key:'calm',       emoji:'😌', label:'Calm',       score:4 },
+  { key:'loved',      emoji:'😍', label:'Loved',      score:5 },
+  { key:'confident',  emoji:'😎', label:'Confident',  score:4 },
+  { key:'excited',    emoji:'🤩', label:'Excited',    score:5 },
+  { key:'sad',        emoji:'😔', label:'Sad',        score:1 },
+  { key:'angry',      emoji:'😡', label:'Angry',      score:1 },
+  { key:'tired',      emoji:'😴', label:'Tired',      score:2 },
+  { key:'anxious',    emoji:'😰', label:'Anxious',    score:1 },
+  { key:'reflective', emoji:'🤔', label:'Reflective', score:3 },
+];
+function moodDef(key){ return MOODS.find(m=>m.key===key); }
+ 
+/* ================= SMARTER DAILY QUOTES ================= */
+const QUOTE_LIBRARY = [
+  {id:'q1',  text:'Small steps still move you forward.', categories:['growth','motivation']},
+  {id:'q2',  text:"You don't need permission to begin.", categories:['beginnings','motivation']},
+  {id:'q3',  text:'Every habit starts with one honest day.', categories:['growth','productivity']},
+  {id:'q4',  text:'Rest is part of the work, not a break from it.', categories:['self-care','mindfulness']},
+  {id:'q5',  text:'Write it down before it becomes a blur.', categories:['journaling']},
+  {id:'q6',  text:"The page doesn't judge, it just listens.", categories:['journaling','self-care']},
+  {id:'q7',  text:'Ideas are shy — they need a quiet room.', categories:['creativity']},
+  {id:'q8',  text:"Make something today, even if it's small.", categories:['creativity','productivity']},
+  {id:'q9',  text:'A good friend remembers the small things.', categories:['friendship']},
+  {id:'q10', text:'Say the kind thing out loud.', categories:['friendship','gratitude']},
+  {id:'q11', text:'Notice one good thing before you sleep.', categories:['gratitude','happiness']},
+  {id:'q12', text:'Thankfulness turns enough into plenty.', categories:['gratitude']},
+  {id:'q13', text:'Happiness is often just attention paid well.', categories:['happiness','mindfulness']},
+  {id:'q14', text:'Let today be simple and good.', categories:['happiness']},
+  {id:'q15', text:'Come back to your breath, then your page.', categories:['mindfulness']},
+  {id:'q16', text:'Slow down enough to notice the moment.', categories:['mindfulness','reflection']},
+  {id:'q17', text:'Success is a quiet accumulation of ordinary days.', categories:['success','growth']},
+  {id:'q18', text:'Progress rarely feels dramatic while it is happening.', categories:['success','growth']},
+  {id:'q19', text:'Look back only to learn, not to linger.', categories:['reflection']},
+  {id:'q20', text:'The story makes more sense a few pages later.', categories:['reflection','journaling']},
+  {id:'q21', text:"Growth is uncomfortable right before it's obvious.", categories:['growth']},
+  {id:'q22', text:'Every season teaches a different kind of patience.', categories:['growth','mindfulness']},
+  {id:'q23', text:"Spring doesn't apologize for starting small.", categories:['beginnings','growth']},
+  {id:'q24', text:'New beginnings rarely announce themselves.', categories:['beginnings']},
+  {id:'q25', text:'Say yes to the adventure hiding in an ordinary day.', categories:['adventure']},
+  {id:'q26', text:'Confidence is built one finished thing at a time.', categories:['confidence']},
+  {id:'q27', text:"The sun doesn't rush, and neither should you.", categories:['happiness','mindfulness']},
+  {id:'q28', text:'Let the rain slow you down on purpose.', categories:['peace','reflection']},
+  {id:'q29', text:'Some clarity only arrives after the storm passes.', categories:['peace','reflection']},
+  {id:'q30', text:'Stillness is productive too.', categories:['peace','mindfulness']},
+  {id:'q31', text:'Change is just growth wearing a different coat.', categories:['change','growth']},
+  {id:'q32', text:'Let go of what served its season.', categories:['change']},
+  {id:'q33', text:'Gratitude turns falling leaves into falling gifts.', categories:['gratitude','change']},
+  {id:'q34', text:'Hope is a quiet kind of courage.', categories:['hope']},
+  {id:'q35', text:'Even bare branches are getting ready.', categories:['hope','growth']},
+  {id:'q36', text:'Resilience looks a lot like showing up again.', categories:['resilience']},
+  {id:'q37', text:'Warm thoughts make the coldest days shorter.', categories:['resilience','happiness']},
+  {id:'q38', text:"You're allowed to rest before you're finished.", categories:['self-care']},
+  {id:'q39', text:'Self-care is choosing yourself on an ordinary Tuesday.', categories:['self-care']},
+  {id:'q40', text:'Discipline is just self-respect in motion.', categories:['productivity','success']},
+];
+const SEASON_QUOTE_CATEGORIES = {
+  spring:  ['growth','beginnings','hope'],
+  summer:  ['adventure','confidence','happiness','creativity'],
+  monsoon: ['peace','reflection','mindfulness'],
+  autumn:  ['change','gratitude','reflection'],
+  winter:  ['hope','resilience','mindfulness'],
+};
+const QUOTE_USED_KEY = 'memoir-quotes-used';
+const QUOTE_FAV_KEY = 'memoir-quotes-fav';
+const QUOTE_TODAY_KEY = 'memoir-quote-today';
+function getUsedQuoteIds(){ try{ return JSON.parse(localStorage.getItem(QUOTE_USED_KEY))||[]; }catch(e){ return []; } }
+function markQuoteUsed(id){ const u = getUsedQuoteIds(); if(!u.includes(id)){ u.push(id); localStorage.setItem(QUOTE_USED_KEY, JSON.stringify(u)); } }
+function getFavQuoteIds(){ try{ return JSON.parse(localStorage.getItem(QUOTE_FAV_KEY))||[]; }catch(e){ return []; } }
+function toggleFavQuote(id){ let f = getFavQuoteIds(); f = f.includes(id) ? f.filter(x=>x!==id) : [...f, id]; localStorage.setItem(QUOTE_FAV_KEY, JSON.stringify(f)); return f; }
+function pickQuote(season){
+  const cats = SEASON_QUOTE_CATEGORIES[season] || [];
+  let pool = QUOTE_LIBRARY.filter(q=> q.categories.some(c=>cats.includes(c)));
+  if(pool.length < 5) pool = QUOTE_LIBRARY.slice();
+  let used = new Set(getUsedQuoteIds());
+  let avail = pool.filter(q=>!used.has(q.id));
+  if(avail.length===0){ localStorage.setItem(QUOTE_USED_KEY, '[]'); avail = pool; }
+  const q = avail[Math.floor(Math.random()*avail.length)];
+  markQuoteUsed(q.id);
+  return q;
+}
+function todaysQuote(season){
+  const todayStr = dateKey(new Date());
+  let rec = null;
+  try{ rec = JSON.parse(localStorage.getItem(QUOTE_TODAY_KEY)); }catch(e){}
+  if(rec && rec.date===todayStr){
+    const existing = QUOTE_LIBRARY.find(q=>q.id===rec.id);
+    if(existing) return existing;
+  }
+  const q = pickQuote(season);
+  localStorage.setItem(QUOTE_TODAY_KEY, JSON.stringify({date:todayStr, id:q.id}));
+  return q;
+}
+ 
+const NOTES_KEY = 'memoir-notes';
+function loadNotes(){
+  try{
+    const raw = localStorage.getItem(NOTES_KEY);
+    if(!raw) return [];
+    const parsed = JSON.parse(raw);
+    return Array.isArray(parsed) ? parsed : [];
+  }catch(e){ console.warn('Could not load saved notes', e); return []; }
+}
+function saveNotes(){
+  try{ localStorage.setItem(NOTES_KEY, JSON.stringify(notes)); }
+  catch(e){ console.warn('Could not save notes', e); toast('⚠️ Could not save — storage may be full'); }
+  if(typeof cloudUser !== 'undefined' && cloudUser) pushCloudSync();
+}
+ 
+let notes = loadNotes();
 let currentView = 'home';
 let searchQuery = '';
 let activeTag = null;
 let editingId = null;
 let draftType = 'note';
 let draftColor = 'peach';
+let draftStyle = 'sticky';
+let draftMood = null;
 let draftChecklist = [];
-
+ 
 function uid(){ return 'n' + Math.random().toString(36).slice(2,10) + Date.now().toString(36); }
 function mkNote(o){
   return Object.assign({
-    id: uid(), title:'', body:'', type:'note', color:'peach', tags:[],
-    pinned:false, favorite:false, archived:false, trashed:false,
+    id: uid(), title:'', body:'', type:'note', color:'peach', style:'sticky', mood:null, tags:[],
+    pinned:false, favorite:false, archived:false, trashed:false, hiddenOTD:false,
     checklist:[], createdAt: Date.now(), rotation: (Math.random()*4-2).toFixed(2)
   }, o);
 }
-
+ 
 function seedSparkles(){
   const sky = document.getElementById('sky');
   for(let i=0;i<14;i++){
@@ -320,32 +867,106 @@ function seedSparkles(){
     sky.appendChild(s);
   }
 }
-function spawnPetal(){
+function spawnPetal(themeKey){
+  const t = THEMES[themeKey] || THEMES.summer;
   const sky = document.getElementById('sky');
   const p = document.createElement('div');
   p.className='petal';
-  p.textContent = PETALS[Math.floor(Math.random()*PETALS.length)];
+  p.textContent = t.particles[Math.floor(Math.random()*t.particles.length)];
   p.style.left = Math.random()*100+'%';
   p.style.animationDuration = (10+Math.random()*8)+'s';
   p.style.fontSize = (14+Math.random()*10)+'px';
   sky.appendChild(p);
   setTimeout(()=>p.remove(), 19000);
 }
-seedSparkles();
-setInterval(spawnPetal, 3200);
-spawnPetal();
-
-function setGreeting(){
-  const h = new Date().getHours();
-  let text = 'Good evening 🌇', sub='Wind down with a warm thought.';
-  if(h < 12){ text='Good morning ☀️'; sub="It's a beautiful day to create."; }
-  else if(h < 18){ text='Good afternoon 🌤️'; sub='Perfect light for a new idea.'; }
-  document.getElementById('greetingText').textContent = text;
-  document.getElementById('greetingSub').textContent = sub;
-  document.getElementById('statQuote').textContent = QUOTES[Math.floor(Math.random()*QUOTES.length)];
+function spawnRain(){
+  const sky = document.getElementById('sky');
+  const d = document.createElement('div');
+  d.className='raindrop';
+  d.style.left = Math.random()*100+'%';
+  d.style.animationDuration = (0.55+Math.random()*0.4)+'s';
+  sky.appendChild(d);
+  setTimeout(()=>{
+    const r = document.createElement('div');
+    r.className='ripple';
+    r.style.left = d.style.left;
+    sky.appendChild(r);
+    setTimeout(()=>r.remove(), 1800);
+    d.remove();
+  }, 950);
 }
-setGreeting();
-
+let particleTimer = null;
+function stopParticles(){
+  if(particleTimer){ clearInterval(particleTimer); particleTimer=null; }
+  document.querySelectorAll('.petal, .raindrop, .ripple').forEach(el=>el.remove());
+}
+function startParticles(themeKey){
+  stopParticles();
+  const t = THEMES[themeKey] || THEMES.summer;
+  const spawn = t.particleMode==='rain' ? spawnRain : ()=>spawnPetal(themeKey);
+  particleTimer = setInterval(spawn, t.particleInterval || 3000);
+  spawn();
+}
+seedSparkles();
+ 
+function timeGreetingWord(){
+  const h = new Date().getHours();
+  if(h < 5) return 'Still Up';
+  if(h < 12) return 'Good Morning';
+  if(h < 17) return 'Good Afternoon';
+  if(h < 21) return 'Good Evening';
+  return 'Good Night';
+}
+let currentQuote = null;
+function setGreeting(refreshQuote){
+  const t = THEMES[activeTheme] || THEMES.summer;
+  document.getElementById('greetingText').textContent = `${timeGreetingWord()} ${t.brandMark}`;
+  document.getElementById('greetingSub').textContent = t.welcomeSub;
+  if(refreshQuote !== false){
+    currentQuote = todaysQuote(activeTheme);
+    renderQuote(false);
+  }
+}
+setInterval(()=> setGreeting(false), 60000); // keep the clock-based greeting current without changing the quote
+ 
+function renderQuote(animate){
+  const el = document.getElementById('statQuote');
+  const authorEl = document.getElementById('statQuoteAuthor');
+  const apply = ()=>{
+    el.textContent = `"${currentQuote.text}"`;
+    authorEl.textContent = currentQuote.author || '';
+    el.classList.remove('fading');
+    const favs = getFavQuoteIds();
+    const favBtn = document.getElementById('qaFav');
+    if(favBtn){ favBtn.classList.toggle('active', favs.includes(currentQuote.id)); favBtn.textContent = favs.includes(currentQuote.id) ? '♥' : '♡'; }
+  };
+  if(animate===false){ apply(); return; }
+  el.classList.add('fading');
+  setTimeout(apply, 220);
+}
+document.getElementById('qaFav')?.addEventListener('click', ()=>{
+  if(!currentQuote) return;
+  const favs = toggleFavQuote(currentQuote.id);
+  renderQuote(false);
+  toast(favs.includes(currentQuote.id) ? '♥ Saved to favorite quotes' : 'Removed from favorites');
+});
+document.getElementById('qaNext')?.addEventListener('click', ()=>{
+  currentQuote = pickQuote(activeTheme);
+  localStorage.setItem(QUOTE_TODAY_KEY, JSON.stringify({date:dateKey(new Date()), id:currentQuote.id}));
+  renderQuote(true);
+});
+document.getElementById('qaCopy')?.addEventListener('click', ()=>{
+  if(!currentQuote) return;
+  const text = `"${currentQuote.text}"${currentQuote.author ? ' — '+currentQuote.author : ''}`;
+  navigator.clipboard?.writeText(text).then(()=> toast('📋 Quote copied')).catch(()=> toast('Could not copy'));
+});
+document.getElementById('qaShare')?.addEventListener('click', ()=>{
+  if(!currentQuote) return;
+  const text = `"${currentQuote.text}"${currentQuote.author ? ' — '+currentQuote.author : ''}`;
+  if(navigator.share){ navigator.share({ text }).catch(()=>{}); }
+  else{ navigator.clipboard?.writeText(text); toast('📋 Copied — sharing not supported here'); }
+});
+ 
 function toast(msg, undoFn){
   const wrap = document.getElementById('toastWrap');
   const t = document.createElement('div');
@@ -360,7 +981,7 @@ function toast(msg, undoFn){
   wrap.appendChild(t);
   setTimeout(()=> t.remove(), 3000);
 }
-
+ 
 function confettiBurst(){
   const colors = ['#FFB27A','#FF8FA3','#FFD670','#BEE9FF','#CFF7E3','#DCCBFF'];
   for(let i=0;i<26;i++){
@@ -376,21 +997,195 @@ function confettiBurst(){
     setTimeout(()=>c.remove(), 2000);
   }
 }
-
+ 
+const STREAK_KEY = 'memoir-active-days';
+function dateKey(d){ return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function getActiveDays(){ try{ return JSON.parse(localStorage.getItem(STREAK_KEY)) || []; } catch(e){ return []; } }
+function markActiveToday(){
+  const days = getActiveDays();
+  const k = dateKey(new Date());
+  if(!days.includes(k)){ days.push(k); localStorage.setItem(STREAK_KEY, JSON.stringify(days)); }
+  updateStreak();
+}
+function computeStreak(){
+  const days = new Set(getActiveDays());
+  let cursor = new Date();
+  if(!days.has(dateKey(cursor))) cursor.setDate(cursor.getDate()-1); // today not logged yet, but yesterday's streak is still "alive"
+  let count = 0;
+  while(days.has(dateKey(cursor))){ count++; cursor.setDate(cursor.getDate()-1); }
+  return count;
+}
+function updateStreak(){
+  const n = computeStreak();
+  document.getElementById('statStreak').textContent = n + (n===1 ? ' day' : ' days');
+}
+ 
+/* ================= SMART WRITING REMINDERS ================= */
+const REMINDERS_KEY = 'memoir-reminders';
+function getReminderPrefs(){
+  try{
+    return Object.assign({ enabled:false, daily:true, weekly:true, goal:false, time:'evening', customTime:'20:00', lastShownDate:null }, JSON.parse(localStorage.getItem(REMINDERS_KEY)) || {});
+  }catch(e){ return { enabled:false, daily:true, weekly:true, goal:false, time:'evening', customTime:'20:00', lastShownDate:null }; }
+}
+function saveReminderPrefs(p){ localStorage.setItem(REMINDERS_KEY, JSON.stringify(p)); }
+function requestNotifPermission(){
+  if(!('Notification' in window)){ toast('Browser notifications are not supported here'); return; }
+  Notification.requestPermission().then(perm=>{
+    toast(perm==='granted' ? '🔔 Notifications enabled' : 'Notifications not enabled');
+    render();
+  });
+}
+const REMINDER_MESSAGES = {
+  daily: ["You haven't written today 🌸", "Capture today's happiest moment.", "A blank page is waiting for you."],
+  weekly: ["Time for your weekly reflection 🌧", "Look back on your week — what stood out?"],
+  goal: ["One note today keeps your streak alive.", "Your garden misses you 🌱", "Three days since your last memory."],
+};
+function reminderTargetHour(p){
+  if(p.time==='morning') return 9;
+  if(p.time==='afternoon') return 14;
+  if(p.time==='evening') return 19;
+  if(p.time==='custom' && p.customTime){ return parseInt(p.customTime.split(':')[0], 10); }
+  return 19;
+}
+function checkReminders(){
+  const p = getReminderPrefs();
+  if(!p.enabled) return;
+  const todayStr = dateKey(new Date());
+  if(p.lastShownDate === todayStr) return; // never spam — once a day, max
+  const now = new Date();
+  if(now.getHours() < reminderTargetHour(p)) return;
+  const wroteToday = activeNotes().some(n=> dateKey(new Date(n.createdAt))===todayStr);
+  if(wroteToday) return;
+ 
+  const pool = [];
+  if(p.daily) pool.push(...REMINDER_MESSAGES.daily);
+  if(p.weekly && now.getDay()===0) pool.push(...REMINDER_MESSAGES.weekly);
+  if(p.goal) pool.push(...REMINDER_MESSAGES.goal);
+  if(pool.length===0) return;
+  const msg = pool[Math.floor(Math.random()*pool.length)];
+ 
+  showReminderBanner(msg);
+  if('Notification' in window && Notification.permission==='granted'){
+    try{ new Notification('Memoir', { body: msg }); }catch(e){}
+  }
+  p.lastShownDate = todayStr;
+  saveReminderPrefs(p);
+}
+function showReminderBanner(msg){
+  const wrap = document.getElementById('reminderBannerWrap');
+  if(!wrap) return;
+  wrap.innerHTML = `<div class="reminder-banner"><span>${msg}</span><button id="dismissReminder" aria-label="Dismiss reminder">✕</button></div>`;
+  document.getElementById('dismissReminder').addEventListener('click', ()=> wrap.innerHTML='');
+}
+ 
+/* ================= GOOGLE ACCOUNT SYNC (Firebase) ================= */
+// Real integration lives in the <script type="module"> block near the end of this file.
+// This app works fully offline via localStorage until a Firebase project is configured there.
+let cloudUser = null;
+let cloudStatus = 'offline'; // 'synced' | 'syncing' | 'offline'
+function renderProfileCard(){
+  const el = document.getElementById('profileCard');
+  if(!el) return;
+  const cloud = window.__memoirCloud;
+  if(!cloud || !cloud.configured){
+    el.innerHTML = `<div class="profile-meta"><div class="profile-name">Not connected</div><div class="cloud-status offline">⚠ Local only — see Settings</div></div>`;
+    return;
+  }
+  if(cloudUser){
+    el.innerHTML = `
+      <div class="profile-avatar">${cloudUser.photoURL ? `<img src="${cloudUser.photoURL}" alt="">` : (cloudUser.displayName||'?')[0]}</div>
+      <div class="profile-meta">
+        <div class="profile-name">${escapeHtml(cloudUser.displayName || cloudUser.email || 'Signed in')}</div>
+        <div class="cloud-status ${cloudStatus}">${cloudStatus==='synced'?'☁️ Synced':cloudStatus==='syncing'?'⟳ Syncing':'⚠ Offline'}</div>
+        <button class="signout-btn" id="cloudSignOut">Sign out</button>
+      </div>`;
+    document.getElementById('cloudSignOut')?.addEventListener('click', ()=> cloud.signOutUser?.());
+  } else {
+    el.innerHTML = `<button class="signin-btn" id="cloudSignIn">🔵 Sign in with Google</button>`;
+    document.getElementById('cloudSignIn')?.addEventListener('click', ()=> cloud.signIn?.());
+  }
+}
+function renderCloudArea(el){
+  if(!el) return;
+  const cloud = window.__memoirCloud;
+  if(!cloud || !cloud.configured){
+    el.innerHTML = `<div class="settings-note">⚠️ No Firebase project is connected yet. Add your Firebase config in the <code>&lt;script type="module"&gt;</code> block near the end of index.html to turn this on — everything keeps working locally in the meantime.</div>`;
+    return;
+  }
+  if(cloudUser){
+    el.innerHTML = `
+      <div class="settings-row">
+        <div><div class="sr-label">${escapeHtml(cloudUser.displayName || cloudUser.email)}</div><div class="sr-sub cloud-status ${cloudStatus}">${cloudStatus==='synced'?'☁️ Synced':cloudStatus==='syncing'?'⟳ Syncing':'⚠ Offline'}</div></div>
+        <button class="signin-btn" style="width:auto; padding:8px 14px;" id="cloudSignOut2">Sign out</button>
+      </div>`;
+    document.getElementById('cloudSignOut2')?.addEventListener('click', ()=> cloud.signOutUser?.());
+  } else {
+    el.innerHTML = `<button class="signin-btn" id="cloudSignIn2">🔵 Sign in with Google</button>`;
+    document.getElementById('cloudSignIn2')?.addEventListener('click', ()=> cloud.signIn?.());
+  }
+}
+function pushCloudSync(){
+  const cloud = window.__memoirCloud;
+  if(!cloud || !cloud.configured || !cloudUser) return;
+  cloudStatus = navigator.onLine===false ? 'offline' : 'syncing';
+  renderProfileCard();
+  const payload = {
+    notes, themeMode, moodFavQuotes:getFavQuoteIds(), reminders:getReminderPrefs(),
+    activeDays:getActiveDays(), updatedAt: Date.now()
+  };
+  cloud.saveCloud(cloudUser.uid, payload).then(()=>{
+    cloudStatus = 'synced'; renderProfileCard();
+  }).catch(()=>{
+    cloudStatus = 'offline'; renderProfileCard();
+  });
+}
+window.addEventListener('online', ()=>{ if(cloudUser) pushCloudSync(); });
+window.addEventListener('offline', ()=>{ cloudStatus='offline'; renderProfileCard(); });
+window.addEventListener('memoir-cloud-ready', ()=> renderProfileCard());
+window.addEventListener('memoir-auth-changed', async (e)=>{
+  const cloud = window.__memoirCloud;
+  cloudUser = e.detail.user;
+  if(cloudUser && cloud){
+    cloudStatus='syncing'; renderProfileCard();
+    try{
+      const cloudData = await cloud.loadCloud(cloudUser.uid);
+      if(cloudData && Array.isArray(cloudData.notes)){
+        // cloud already has data — treat it as the source of truth
+        notes = cloudData.notes;
+        if(cloudData.themeMode){ themeMode = cloudData.themeMode; localStorage.setItem(THEME_MODE_KEY, themeMode); }
+        saveNotes();
+      } else {
+        // first time syncing this account — migrate local data up
+        await cloud.saveCloud(cloudUser.uid, { notes, themeMode, activeDays:getActiveDays(), updatedAt: Date.now() });
+      }
+      cloudStatus='synced';
+      toast('☁️ Signed in and synced');
+    }catch(err){ cloudStatus='offline'; }
+    applyTheme();
+  } else {
+    cloudStatus='offline';
+    renderProfileCard();
+  }
+});
+ 
+ 
 function activeNotes(){ return notes.filter(n=>!n.trashed && !n.archived); }
 function updateCounts(){
+  updateStreak();
   document.getElementById('count-notes').textContent = activeNotes().length;
   document.getElementById('count-pinned').textContent = activeNotes().filter(n=>n.pinned).length;
   document.getElementById('count-favorites').textContent = activeNotes().filter(n=>n.favorite).length;
   document.getElementById('count-archive').textContent = notes.filter(n=>n.archived && !n.trashed).length;
   document.getElementById('count-trash').textContent = notes.filter(n=>n.trashed).length;
-  document.getElementById('statToday').textContent = activeNotes().length;
+  const todayStr = dateKey(new Date());
+  document.getElementById('statToday').textContent = activeNotes().filter(n=> dateKey(new Date(n.createdAt))===todayStr).length;
   document.getElementById('statPinned').textContent = activeNotes().filter(n=>n.pinned).length;
 }
-
+ 
 const VIEW_TITLES = {
   home:'Today\'s notes', notes:'All notes', pinned:'Pinned notes', favorites:'Favorites',
-  categories:'Browse by category', archive:'Archived', trash:'Trash', settings:'Settings'
+  categories:'Browse by category', archive:'Archived', trash:'Trash', settings:'Settings',
+  garden:'🌱 Memory Garden', moods:'😊 Mood Insights'
 };
 function setView(v){
   currentView = v; activeTag=null;
@@ -405,16 +1200,16 @@ document.getElementById('nav').addEventListener('click', e=>{
 document.getElementById('bottomNav').addEventListener('click', e=>{
   const btn = e.target.closest('button'); if(!btn) return; setView(btn.dataset.view);
 });
-
+ 
 const searchInput = document.getElementById('searchInput');
 searchInput.addEventListener('input', e=>{ searchQuery = e.target.value.toLowerCase(); render(); });
-
+ 
 function getAllTags(){
   const s = new Set();
   activeNotes().forEach(n=> n.tags.forEach(t=>s.add(t)));
   return [...s];
 }
-
+ 
 function filteredNotes(){
   let list;
   if(currentView==='home') list = activeNotes();
@@ -425,7 +1220,7 @@ function filteredNotes(){
   else if(currentView==='trash') list = notes.filter(n=>n.trashed);
   else if(currentView==='categories') list = activeNotes();
   else list = [];
-
+ 
   if(activeTag) list = list.filter(n=> n.tags.includes(activeTag));
   if(searchQuery){
     list = list.filter(n=>
@@ -437,13 +1232,29 @@ function filteredNotes(){
   }
   return list.slice().sort((a,b)=> (b.pinned-a.pinned) || (b.createdAt-a.createdAt));
 }
-
+ 
 function render(){
   updateCounts();
   renderChips();
+  renderOnThisDay();
   const wrap = document.getElementById('gridWrap');
+ 
+  if(currentView==='settings'){
+    wrap.innerHTML = renderSettingsPanel();
+    wireSettingsPanel();
+    return;
+  }
+  if(currentView==='garden'){
+    wrap.innerHTML = renderGardenView();
+    return;
+  }
+  if(currentView==='moods'){
+    wrap.innerHTML = renderMoodsView();
+    return;
+  }
+ 
   const list = filteredNotes();
-
+ 
   if(list.length===0){
     wrap.innerHTML = renderEmpty();
     const cta = wrap.querySelector('#emptyCta');
@@ -469,12 +1280,13 @@ function render(){
         const n = notes.find(x=>x.id===noteId);
         n.checklist[idx].done = !n.checklist[idx].done;
         if(n.checklist.every(c=>c.done)) confettiBurst();
+        saveNotes();
         render();
       });
     });
   });
 }
-
+ 
 function renderChips(){
   const row = document.getElementById('chipRow');
   if(currentView!=='categories' && currentView!=='notes' && currentView!=='home'){ row.innerHTML=''; return; }
@@ -485,19 +1297,11 @@ function renderChips(){
     activeTag = activeTag===c.dataset.tag ? null : c.dataset.tag; render();
   }));
 }
-
+ 
 function renderEmpty(){
-  const messages = {
-    home:['🌤️','Every great idea starts with a little note ☀️'],
-    notes:['🖋️','Every great idea starts with a little note ☀️'],
-    pinned:['📌','Pin your favorite notes to keep them close'],
-    favorites:['⭐','Star the notes that make you smile'],
-    archive:['📦','Nothing tucked away just yet'],
-    trash:['🗑️','Your trash is as clean as a beach at sunrise'],
-    categories:['🗂️','Add tags to your notes to see them here'],
-    settings:['⚙️','Settings are coming soon']
-  };
-  const [icon, msg] = messages[currentView] || ['☀️','Nothing here yet'];
+  const t = THEMES[activeTheme] || THEMES.summer;
+  const messages = t.empty || {};
+  const [icon, msg] = messages[currentView] || [t.brandMark,'Nothing here yet'];
   const showCta = ['home','notes','pinned','favorites','categories'].includes(currentView);
   return `<div class="empty">
     <div class="empty-illustration">${icon}</div>
@@ -505,7 +1309,335 @@ function renderEmpty(){
     ${showCta ? '<button class="empty-cta" id="emptyCta">＋ Create your first note</button>' : ''}
   </div>`;
 }
-
+ 
+function renderSettingsPanel(){
+  const autoDetected = autoSeason();
+  const autoCard = `
+    <button class="theme-card auto ${themeMode==='auto'?'sel':''}" data-mode="auto">
+      <span class="tc-check">✓</span>
+      <span class="tc-emoji">🌦️</span>
+      <span class="tc-name">Automatic</span>
+      <span class="tc-mood">Recommended · currently ${THEMES[autoDetected].label}</span>
+    </button>`;
+  const seasonCards = SEASON_ORDER.map(key=>{
+    const t = THEMES[key];
+    const sel = themeMode===key ? 'sel':'';
+    return `<button class="theme-card ${sel}" data-mode="${key}" style="background:linear-gradient(160deg, var(--sky-1), var(--sky-3));">
+      <span class="tc-check">✓</span>
+      <span class="tc-emoji">${t.brandMark}</span>
+      <span class="tc-name">${t.label}</span>
+      <span class="tc-mood">${t.mood}</span>
+    </button>`;
+  }).join('');
+ 
+  const p = getReminderPrefs();
+  const notifState = (window.Notification && Notification.permission==='granted');
+  const reminderBlock = `
+    <div class="settings-block">
+      <h3>🔔 Smart Writing Reminders</h3>
+      <p class="settings-desc">Gentle nudges to keep your journaling streak alive — shown inside the app, and as browser notifications if you allow them. Never more than one a day.</p>
+      <div class="settings-row">
+        <div><div class="sr-label">Enable reminders</div><div class="sr-sub">Turn the whole system on or off</div></div>
+        <label class="switch"><input type="checkbox" id="remEnabled" ${p.enabled?'checked':''}><span class="slider"></span></label>
+      </div>
+      <div id="remOptions" style="${p.enabled?'':'display:none;'}">
+        <div class="settings-row">
+          <div><div class="sr-label">Daily journaling reminder</div></div>
+          <label class="switch"><input type="checkbox" id="remDaily" ${p.daily?'checked':''}><span class="slider"></span></label>
+        </div>
+        <div class="settings-row">
+          <div><div class="sr-label">Weekly reflection reminder</div><div class="sr-sub">Sundays</div></div>
+          <label class="switch"><input type="checkbox" id="remWeekly" ${p.weekly?'checked':''}><span class="slider"></span></label>
+        </div>
+        <div class="settings-row">
+          <div><div class="sr-label">Writing goal reminder</div><div class="sr-sub">Keeps your streak alive</div></div>
+          <label class="switch"><input type="checkbox" id="remGoal" ${p.goal?'checked':''}><span class="slider"></span></label>
+        </div>
+        <div class="settings-row" style="flex-direction:column; align-items:flex-start; gap:8px;">
+          <div class="sr-label">Remind me around</div>
+          <div class="time-options">
+            <button class="time-opt ${p.time==='morning'?'sel':''}" data-time="morning" type="button">Morning</button>
+            <button class="time-opt ${p.time==='afternoon'?'sel':''}" data-time="afternoon" type="button">Afternoon</button>
+            <button class="time-opt ${p.time==='evening'?'sel':''}" data-time="evening" type="button">Evening</button>
+            <button class="time-opt ${p.time==='custom'?'sel':''}" data-time="custom" type="button">Custom</button>
+            ${p.time==='custom' ? `<input type="time" id="remCustomTime" value="${p.customTime||'20:00'}" style="border-radius:10px; border:1.5px solid rgba(90,75,71,0.15); padding:5px 8px;">` : ''}
+          </div>
+        </div>
+        <div class="settings-row">
+          <div><div class="sr-label">Browser notifications</div><div class="sr-sub">${notifState ? 'Enabled for this browser' : 'Not enabled yet'}</div></div>
+          <button class="signin-btn" id="remNotifBtn" style="width:auto; padding:8px 14px;">${notifState ? '✓ Enabled' : 'Allow'}</button>
+        </div>
+      </div>
+    </div>`;
+ 
+  const cloudBlock = `
+    <div class="settings-block">
+      <h3>☁️ Account & Cloud Sync</h3>
+      <p class="settings-desc">Sign in with Google to sync notes, checklists, pins, favorites, archive, your seasonal theme, garden and mood history across devices.</p>
+      <div id="settingsCloudArea"></div>
+    </div>`;
+ 
+  return `<div class="settings-panel">
+    <div class="settings-block">
+      <h3>🎨 Dynamic Seasonal Themes</h3>
+      <p class="settings-desc">Memoir transforms itself with the seasons — colors, decorations, quotes and all. Choose Automatic to always match the current month, or pick a season yourself.</p>
+      <div class="theme-grid">${autoCard}${seasonCards}</div>
+      <div class="settings-note">💾 Your choice is saved on this device and applies instantly — no refresh needed.</div>
+    </div>
+    ${reminderBlock}
+    ${cloudBlock}
+  </div>`;
+}
+function wireSettingsPanel(){
+  document.querySelectorAll('.theme-card').forEach(card=>{
+    card.addEventListener('click', ()=> setThemeMode(card.dataset.mode));
+  });
+ 
+  const remEnabled = document.getElementById('remEnabled');
+  remEnabled?.addEventListener('change', ()=>{
+    const p = getReminderPrefs(); p.enabled = remEnabled.checked; saveReminderPrefs(p); render();
+  });
+  document.getElementById('remDaily')?.addEventListener('change', e=>{ const p=getReminderPrefs(); p.daily=e.target.checked; saveReminderPrefs(p); });
+  document.getElementById('remWeekly')?.addEventListener('change', e=>{ const p=getReminderPrefs(); p.weekly=e.target.checked; saveReminderPrefs(p); });
+  document.getElementById('remGoal')?.addEventListener('change', e=>{ const p=getReminderPrefs(); p.goal=e.target.checked; saveReminderPrefs(p); });
+  document.querySelectorAll('.time-opt').forEach(btn=>{
+    btn.addEventListener('click', ()=>{ const p=getReminderPrefs(); p.time=btn.dataset.time; saveReminderPrefs(p); render(); });
+  });
+  document.getElementById('remCustomTime')?.addEventListener('change', e=>{ const p=getReminderPrefs(); p.customTime=e.target.value; saveReminderPrefs(p); });
+  document.getElementById('remNotifBtn')?.addEventListener('click', ()=> requestNotifPermission());
+ 
+  renderCloudArea(document.getElementById('settingsCloudArea'));
+}
+ 
+function applyTheme(){
+  activeTheme = resolveTheme();
+  document.documentElement.setAttribute('data-theme', activeTheme);
+  const brandMarkEl = document.querySelector('.brand-mark');
+  if(brandMarkEl) brandMarkEl.textContent = THEMES[activeTheme].brandMark;
+  setGreeting();
+  startParticles(activeTheme);
+  render();
+}
+function setThemeMode(mode){
+  themeMode = mode;
+  localStorage.setItem(THEME_MODE_KEY, mode);
+  applyTheme();
+  toast(mode==='auto'
+    ? `🌦️ Following the seasons automatically`
+    : `${THEMES[mode].brandMark} ${THEMES[mode].label} theme applied`);
+}
+ 
+/* ================= MEMORY GARDEN VIEW ================= */
+function renderGardenView(){
+  const total = notes.length;
+  const streak = computeStreak();
+  const skin = SEASON_GARDEN_SKIN[activeTheme] || SEASON_GARDEN_SKIN.summer;
+  const nextMilestone = GARDEN_MILESTONES.find(m=> total < m.min);
+  const plants = GARDEN_MILESTONES.map(m=>{
+    const unlocked = total >= m.min;
+    return `<div class="garden-plant ${unlocked?'':'locked'}" style="left:${m.left}; bottom:${m.bottom};">
+      <span class="garden-tooltip">${unlocked ? m.msg : `Reach ${m.min} memories to unlock ${m.label}`}</span>
+      ${m.emoji}
+    </div>`;
+  }).join('');
+  const bonuses = GARDEN_STREAK_BONUSES.map(b=>{
+    const unlocked = streak >= b.min;
+    return `<div class="garden-plant ${unlocked?'':'locked'}" style="left:${b.left}; top:${b.top}; font-size:22px;">
+      <span class="garden-tooltip">${unlocked ? b.msg : `Reach a ${b.min}-day streak to unlock ${b.label}`}</span>
+      ${b.emoji}
+    </div>`;
+  }).join('');
+  const progressPct = nextMilestone ? Math.min(100, Math.round((total / nextMilestone.min) * 100)) : 100;
+  return `<div class="settings-panel">
+    <div class="settings-block">
+      <h3>🌱 Your Memory Garden</h3>
+      <p class="settings-desc">Every note you write helps something grow here. ${total} memor${total===1?'y':'ies'} planted so far, with a ${streak}-day writing streak.</p>
+      <div class="garden-scene" style="background:${skin.sky};">
+        <div class="garden-ground" style="background:${skin.ground};"></div>
+        ${plants}
+        ${bonuses}
+      </div>
+      ${nextMilestone ? `
+        <div class="garden-caption">🌿 ${nextMilestone.min - total} more memor${(nextMilestone.min-total)===1?'y':'ies'} until your ${nextMilestone.label.toLowerCase()} appears</div>
+        <div class="garden-progress-bar"><div class="garden-progress-fill" style="width:${progressPct}%;"></div></div>
+      ` : `<div class="garden-caption">🌳 Your garden has fully flourished — keep writing to keep it alive.</div>`}
+    </div>
+  </div>`;
+}
+ 
+/* ================= MOOD INSIGHTS VIEW ================= */
+function renderMoodsView(){
+  const moodNotes = notes.filter(n=> n.mood && !n.trashed).sort((a,b)=> b.createdAt - a.createdAt);
+  if(moodNotes.length===0){
+    return `<div class="settings-panel"><div class="settings-block">
+      <h3>😊 Mood Insights</h3>
+      <p class="settings-desc">Add a mood when you write a note and your patterns will show up here — privately, calculated only on this device.</p>
+      <div class="empty" style="padding:20px 0;"><div class="empty-illustration">🌤️</div><h3>No moods logged yet</h3></div>
+    </div></div>`;
+  }
+  // distribution
+  const counts = {};
+  moodNotes.forEach(n=> counts[n.mood] = (counts[n.mood]||0)+1);
+  const maxCount = Math.max(...Object.values(counts));
+  const distRows = MOODS.filter(m=>counts[m.key]).sort((a,b)=>(counts[b.key]||0)-(counts[a.key]||0)).map(m=>`
+    <div class="mood-bar-row">
+      <span class="mb-emoji">${m.emoji}</span>
+      <div class="mood-bar-track"><div class="mood-bar-fill" style="width:${Math.round((counts[m.key]/maxCount)*100)}%;"></div></div>
+      <span class="mb-count">${counts[m.key]}</span>
+    </div>`).join('');
+  const topMoodKey = Object.entries(counts).sort((a,b)=>b[1]-a[1])[0][0];
+  const topMood = moodDef(topMoodKey);
+ 
+  // current mood streak
+  let moodStreak = 1;
+  for(let i=1;i<moodNotes.length;i++){ if(moodNotes[i].mood===moodNotes[0].mood) moodStreak++; else break; }
+ 
+  // weekly trend (last 7 days avg score)
+  const days = [];
+  for(let i=6;i>=0;i--){ const d = new Date(); d.setDate(d.getDate()-i); days.push(d); }
+  const dayScores = days.map(d=>{
+    const k = dateKey(d);
+    const dayNotes = moodNotes.filter(n=> dateKey(new Date(n.createdAt))===k);
+    if(dayNotes.length===0) return null;
+    return dayNotes.reduce((s,n)=> s+(moodDef(n.mood)?.score||3), 0) / dayNotes.length;
+  });
+  const pts = dayScores.map((s,i)=> s===null ? null : [ (i/6)*260, 60 - ((s-1)/4)*50 ]);
+  const validPts = pts.filter(Boolean);
+  const path = validPts.length>1 ? `<polyline points="${pts.filter(Boolean).map(p=>p.join(',')).join(' ')}" fill="none" stroke="var(--sunset)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>` : '';
+  const dots = pts.map((p,i)=> p ? `<circle cx="${p[0]}" cy="${p[1]}" r="3.5" fill="var(--coral)"/>` : '').join('');
+ 
+  // monthly calendar
+  const now = new Date();
+  const year = now.getFullYear(), month = now.getMonth();
+  const daysInMonth = new Date(year, month+1, 0).getDate();
+  const firstWeekday = new Date(year, month, 1).getDay();
+  let calCells = '';
+  for(let i=0;i<firstWeekday;i++) calCells += `<div class="mood-cal-cell"></div>`;
+  for(let day=1; day<=daysInMonth; day++){
+    const k = `${year}-${String(month+1).padStart(2,'0')}-${String(day).padStart(2,'0')}`;
+    const dayNotes = moodNotes.filter(n=> dateKey(new Date(n.createdAt))===k);
+    const last = dayNotes[0];
+    calCells += `<div class="mood-cal-cell ${last?'has-mood':''}" title="${last ? moodDef(last.mood)?.label : ''}">${last ? moodDef(last.mood)?.emoji : day}</div>`;
+  }
+ 
+  // timeline
+  const timeline = moodNotes.slice(0,15).map(n=>{
+    const m = moodDef(n.mood);
+    const d = new Date(n.createdAt);
+    return `<div class="timeline-item"><span class="ti-emoji">${m?.emoji||''}</span><div><div>${escapeHtml(n.title||'Untitled')}</div><div class="ti-date">${d.toLocaleDateString(undefined,{month:'short', day:'numeric'})} · ${m?.label||''}</div></div></div>`;
+  }).join('');
+ 
+  // gentle insights
+  const insights = [];
+  const weekendNotes = moodNotes.filter(n=> [0,6].includes(new Date(n.createdAt).getDay()));
+  const weekdayNotes = moodNotes.filter(n=> ![0,6].includes(new Date(n.createdAt).getDay()));
+  if(weekendNotes.length>=2 && weekdayNotes.length>=2){
+    const wkndAvg = weekendNotes.reduce((s,n)=>s+(moodDef(n.mood)?.score||3),0)/weekendNotes.length;
+    const wkdyAvg = weekdayNotes.reduce((s,n)=>s+(moodDef(n.mood)?.score||3),0)/weekdayNotes.length;
+    if(wkndAvg - wkdyAvg > 0.6) insights.push('🌤️ You tend to log brighter moods on weekends.');
+  }
+  if(moodStreak>=3) insights.push(`🔁 You've tagged "${topMood ? moodDef(moodNotes[0].mood).label : ''}" for your last ${moodStreak} entries.`);
+  const recent7 = dayScores.filter(s=>s!==null);
+  const prior7 = days.map(d=>{ const dd=new Date(d); dd.setDate(dd.getDate()-7); return dd; }).map(d=>{
+    const k = dateKey(d);
+    const dn = moodNotes.filter(n=> dateKey(new Date(n.createdAt))===k);
+    return dn.length ? dn.reduce((s,n)=>s+(moodDef(n.mood)?.score||3),0)/dn.length : null;
+  }).filter(s=>s!==null);
+  if(recent7.length>=3 && prior7.length>=3){
+    const a = recent7.reduce((x,y)=>x+y,0)/recent7.length, b = prior7.reduce((x,y)=>x+y,0)/prior7.length;
+    if(a - b > 0.4) insights.push('📈 Your logged moods have trended a little brighter this week.');
+    else if(b - a > 0.4) insights.push('🫶 This week reads a little heavier than last — be gentle with yourself.');
+  }
+  if(insights.length===0) insights.push('✨ Keep tagging moods on your notes to unlock more personal insights over time.');
+ 
+  return `<div class="insight-grid">
+    <div class="insight-card">
+      <h4>Overview</h4>
+      <div class="mood-stat-big">${topMood?.emoji||''} ${topMood?.label||''}</div>
+      <p class="settings-desc" style="margin:2px 0 0;">Most common mood</p>
+      <p class="settings-desc" style="margin-top:10px;">🔁 Current streak: <b>${moodStreak}</b> entr${moodStreak===1?'y':'ies'} of the same mood</p>
+    </div>
+    <div class="insight-card">
+      <h4>Gentle insights</h4>
+      ${insights.map(i=>`<div class="insight-msg">${i}</div>`).join('')}
+    </div>
+    <div class="insight-card">
+      <h4>Mood distribution</h4>
+      ${distRows}
+    </div>
+    <div class="insight-card">
+      <h4>Weekly trend</h4>
+      <svg viewBox="0 0 260 70" width="100%" height="80">${path}${dots}</svg>
+    </div>
+    <div class="insight-card" style="grid-column:span 2;">
+      <h4>${now.toLocaleDateString(undefined,{month:'long', year:'numeric'})} calendar</h4>
+      <div class="mood-cal">${calCells}</div>
+    </div>
+    <div class="insight-card" style="grid-column:span 2;">
+      <h4>History timeline</h4>
+      <div class="mood-timeline">${timeline}</div>
+    </div>
+  </div>`;
+}
+ 
+/* ================= ON THIS DAY ================= */
+function computeOnThisDay(){
+  const today = new Date();
+  return notes.filter(n=>{
+    if(n.trashed || n.hiddenOTD) return false;
+    const dt = new Date(n.createdAt);
+    return dt.getMonth()===today.getMonth() && dt.getDate()===today.getDate() && dt.getFullYear() < today.getFullYear();
+  }).sort((a,b)=> b.createdAt - a.createdAt);
+}
+function renderOnThisDay(){
+  const wrap = document.getElementById('otdWrap');
+  if(!wrap) return;
+  if(currentView!=='home'){ wrap.innerHTML=''; return; }
+  const memories = computeOnThisDay();
+  const yearsAgo = (ts)=>{ const y = new Date().getFullYear() - new Date(ts).getFullYear(); return y===1 ? '1 year ago' : `${y} years ago`; };
+  if(memories.length===0){
+    wrap.innerHTML = `<div class="otd-card"><div class="otd-empty">📅 No memories from this day in past years yet — today could be the first one.</div></div>`;
+    return;
+  }
+  wrap.innerHTML = `<div class="otd-card">
+    <div class="otd-head"><h3>📅 On this day...</h3></div>
+    <div class="otd-list">
+      ${memories.map(n=>{
+        const m = moodDef(n.mood);
+        return `<div class="otd-item" data-id="${n.id}">
+          <div class="otd-year">${yearsAgo(n.createdAt)} ${m?m.emoji:''}</div>
+          <h4 class="otd-title">${escapeHtml(n.title||'Untitled')}</h4>
+          <div class="otd-snippet">${escapeHtml(n.body||'').slice(0,90)}</div>
+          <div class="otd-actions">
+            <button class="otd-open" title="Open">👁️</button>
+            <button class="otd-pin" title="Pin">📌</button>
+            <button class="otd-fav" title="Favorite">⭐</button>
+            <button class="otd-share" title="Share">📤</button>
+            <button class="otd-hide" title="Hide this memory">✕</button>
+          </div>
+        </div>`;
+      }).join('')}
+    </div>
+  </div>`;
+  wrap.querySelectorAll('.otd-item').forEach(el=>{
+    const id = el.dataset.id;
+    el.querySelector('.otd-open').addEventListener('click', ()=> openModal(id));
+    el.querySelector('.otd-pin').addEventListener('click', ()=> toggle(id,'pinned'));
+    el.querySelector('.otd-fav').addEventListener('click', ()=> toggle(id,'favorite'));
+    el.querySelector('.otd-share').addEventListener('click', ()=>{
+      const n = notes.find(x=>x.id===id); if(!n) return;
+      const text = `${n.title}\n${n.body}`;
+      if(navigator.share){ navigator.share({ text }).catch(()=>{}); }
+      else{ navigator.clipboard?.writeText(text); toast('📋 Copied — sharing not supported here'); }
+    });
+    el.querySelector('.otd-hide').addEventListener('click', ()=>{
+      const n = notes.find(x=>x.id===id); if(!n) return;
+      n.hiddenOTD = true; saveNotes(); renderOnThisDay();
+      toast('Memory hidden from On This Day');
+    });
+  });
+}
+ 
 function renderNote(n){
   const c = NOTE_COLORS[n.color] || NOTE_COLORS.peach;
   const isTrash = n.trashed, isArchived = n.archived;
@@ -520,7 +1652,7 @@ function renderNote(n){
     body = `<div class="note-body">${escapeHtml(n.body)}</div>`;
   }
   const tags = n.tags.length ? `<div class="note-tags">${n.tags.map(t=>`<span class="tag-pill">${escapeHtml(t)}</span>`).join('')}</div>` : '';
-
+ 
   let actions = '';
   if(isTrash){
     actions = `<button class="act-restore" title="Restore">♻️</button><button class="act-delete" title="Delete forever">❌</button>`;
@@ -531,59 +1663,78 @@ function renderNote(n){
       <button class="act-archive" title="${isArchived?'Unarchive':'Archive'}">${isArchived?'📤':'📦'}</button>
       <button class="act-delete" title="Move to trash">🗑</button>`;
   }
-
-  return `<div class="note" data-id="${n.id}" style="--rot:rotate(${n.rotation}deg); background:${c.bg}; transform:rotate(${n.rotation}deg);">
+ 
+  return `<div class="note style-${n.style||'sticky'}" data-id="${n.id}" style="--rot:rotate(${n.rotation}deg); --note-bg:${c.bg}; background:${c.bg}; transform:rotate(${n.rotation}deg);">
     <div class="tape" style="background:${c.tape};"></div>
     <div class="note-top">
       <h4 class="note-title">${escapeHtml(n.title || 'Untitled')}</h4>
-      <div class="note-badges">${n.pinned?'<span>📌</span>':''}${n.favorite?'<span>⭐</span>':''}</div>
+      <div class="note-badges">${n.mood?`<span class="note-mood-badge">${moodDef(n.mood)?.emoji||''}</span>`:''}${n.pinned?'<span>📌</span>':''}${n.favorite?'<span>⭐</span>':''}</div>
     </div>
     ${body}
     ${tags}
     <div class="note-actions">${actions}</div>
   </div>`;
 }
-
+ 
 function escapeHtml(s){
   return (s||'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
-
+ 
 function toggle(id, field){
   const n = notes.find(x=>x.id===id); if(!n) return;
   n[field] = !n[field];
+  saveNotes();
   toast(n[field] ? (field==='pinned'?'📌 Pinned to top':'⭐ Added to favorites') : 'Updated');
   render();
 }
 function archiveNote(id){
   const n = notes.find(x=>x.id===id); if(!n) return;
   n.archived = !n.archived;
-  toast(n.archived ? '📦 Note archived' : '📤 Note restored', ()=>{ n.archived = !n.archived; render(); });
+  saveNotes();
+  toast(n.archived ? '📦 Note archived' : '📤 Note restored', ()=>{ n.archived = !n.archived; saveNotes(); render(); });
   render();
 }
 function deleteNote(id){
   const n = notes.find(x=>x.id===id); if(!n) return;
   if(n.trashed){
     notes = notes.filter(x=>x.id!==id);
+    saveNotes();
     toast('Note deleted forever');
   } else {
     n.trashed = true;
-    toast('🗑 Moved to trash', ()=>{ n.trashed=false; render(); });
+    saveNotes();
+    toast('🗑 Moved to trash', ()=>{ n.trashed=false; saveNotes(); render(); });
   }
   render();
 }
 function restoreNote(id){
   const n = notes.find(x=>x.id===id); if(!n) return;
   n.trashed = false;
+  saveNotes();
   toast('♻️ Note restored');
   render();
 }
-
+ 
 const overlay = document.getElementById('overlay');
 const colorRow = document.getElementById('colorRow');
 colorRow.innerHTML = Object.entries(NOTE_COLORS).map(([key,c])=>
   `<button class="swatch" data-color="${key}" style="background:${c.bg}; box-shadow: inset 0 0 0 2px ${c.tape}55;" title="${c.label}"></button>`
 ).join('');
-
+ 
+const styleRow = document.getElementById('styleRow');
+styleRow.innerHTML = NOTE_STYLES.map((s,i)=>
+  `<button class="style-card" data-style="${s.key}" type="button">
+    <span class="sc-num">${i+1}</span>
+    <span class="sc-preview p-${s.key}"></span>
+    <span class="sc-label">${s.label}</span>
+  </button>`
+).join('');
+ 
+const moodRow = document.getElementById('moodRow');
+moodRow.innerHTML = MOODS.map(m=>
+  `<button type="button" class="mood-chip" data-mood="${m.key}">${m.emoji}<span class="mood-name">${m.label}</span></button>`
+).join('') + `<button type="button" class="mood-chip" data-mood="">✕<span class="mood-name">None</span></button>`;
+ 
 function openModal(id){
   editingId = id || null;
   const n = id ? notes.find(x=>x.id===id) : null;
@@ -593,22 +1744,42 @@ function openModal(id){
   document.getElementById('fTags').value = n ? n.tags.join(', ') : '';
   draftType = n ? n.type : 'note';
   draftColor = n ? n.color : pickRandomColor();
+  draftStyle = n ? (n.style || 'sticky') : 'sticky';
+  draftMood = n ? (n.mood || null) : null;
   draftChecklist = n ? n.checklist.map(c=>({...c})) : [{text:'', done:false},{text:'', done:false}];
-
+ 
   document.querySelectorAll('.type-toggle button').forEach(b=> b.classList.toggle('sel', b.dataset.type===draftType));
   document.getElementById('bodyField').style.display = draftType==='note' ? 'block':'none';
   document.getElementById('checklistField').style.display = draftType==='checklist' ? 'block':'none';
-  renderColorSel(); renderChecklistEdit();
+  renderColorSel(); renderStyleSel(); renderMoodSel(); renderChecklistEdit();
   overlay.classList.add('open');
   setTimeout(()=> document.getElementById('fTitle').focus(), 100);
 }
-function pickRandomColor(){ const keys=Object.keys(NOTE_COLORS); return keys[Math.floor(Math.random()*keys.length)]; }
+function pickRandomColor(){
+  const t = THEMES[activeTheme];
+  if(t && t.stickyOrder && t.stickyOrder.length && Math.random() < 0.75){
+    return t.stickyOrder[Math.floor(Math.random()*t.stickyOrder.length)];
+  }
+  const keys=Object.keys(NOTE_COLORS); return keys[Math.floor(Math.random()*keys.length)];
+}
 function closeModal(){ overlay.classList.remove('open'); editingId=null; }
 function renderColorSel(){
   colorRow.querySelectorAll('.swatch').forEach(s=> s.classList.toggle('sel', s.dataset.color===draftColor));
 }
 colorRow.addEventListener('click', e=>{
   const s = e.target.closest('.swatch'); if(!s) return; draftColor = s.dataset.color; renderColorSel();
+});
+function renderStyleSel(){
+  styleRow.querySelectorAll('.style-card').forEach(s=> s.classList.toggle('sel', s.dataset.style===draftStyle));
+}
+styleRow.addEventListener('click', e=>{
+  const s = e.target.closest('.style-card'); if(!s) return; draftStyle = s.dataset.style; renderStyleSel();
+});
+function renderMoodSel(){
+  moodRow.querySelectorAll('.mood-chip').forEach(c=> c.classList.toggle('sel', c.dataset.mood === (draftMood||'')));
+}
+moodRow.addEventListener('click', e=>{
+  const c = e.target.closest('.mood-chip'); if(!c) return; draftMood = c.dataset.mood || null; renderMoodSel();
 });
 document.querySelectorAll('.type-toggle button').forEach(b=>{
   b.addEventListener('click', ()=>{
@@ -637,28 +1808,30 @@ function renderChecklistEdit(){
   }));
 }
 document.getElementById('addItemBtn').addEventListener('click', ()=>{ draftChecklist.push({text:'',done:false}); renderChecklistEdit(); });
-
+ 
 document.getElementById('saveBtn').addEventListener('click', ()=>{
   const title = document.getElementById('fTitle').value.trim();
   const body = document.getElementById('fBody').value.trim();
   const tags = document.getElementById('fTags').value.split(',').map(t=>t.trim()).filter(Boolean);
   const checklist = draftChecklist.filter(c=>c.text.trim().length>0);
-
+ 
   if(!title && !body && checklist.length===0){ toast('Give your note a little something first 🌱'); return; }
-
+ 
   if(editingId){
     const n = notes.find(x=>x.id===editingId);
-    Object.assign(n, { title, body, tags, color:draftColor, type:draftType, checklist });
+    Object.assign(n, { title, body, tags, color:draftColor, type:draftType, checklist, style:draftStyle, mood:draftMood });
     toast('Note updated');
   } else {
-    notes.unshift(mkNote({ title, body, tags, color:draftColor, type:draftType, checklist }));
+    notes.unshift(mkNote({ title, body, tags, color:draftColor, type:draftType, checklist, style:draftStyle, mood:draftMood }));
+    markActiveToday();
     toast('✨ Note created');
   }
+  saveNotes();
   closeModal(); render();
 });
 document.getElementById('cancelBtn').addEventListener('click', closeModal);
 overlay.addEventListener('click', e=>{ if(e.target===overlay) closeModal(); });
-
+ 
 document.getElementById('fabAdd').addEventListener('click', ()=> openModal());
 document.addEventListener('keydown', e=>{
   if(e.key==='Escape'){ closeModal(); return; }
@@ -667,8 +1840,72 @@ document.addEventListener('keydown', e=>{
   if(e.key.toLowerCase()==='n'){ e.preventDefault(); openModal(); }
   if(e.key==='/'){ e.preventDefault(); searchInput.focus(); }
 });
-
+ 
+applyTheme();
 setView('home');
+renderProfileCard();
+checkReminders();
+setInterval(checkReminders, 5*60*1000); // re-check every 5 minutes without ever showing more than one banner per day
+</script>
+ 
+<!-- ============================================================
+     GOOGLE ACCOUNT SYNC (Firebase Auth + Firestore)
+     ------------------------------------------------------------
+     To turn this on:
+       1. Create a free project at https://console.firebase.google.com
+       2. Enable "Google" under Authentication → Sign-in method
+       3. Create a Firestore database (production or test mode)
+       4. Copy your project's config object into FIREBASE_CONFIG below
+     Until you do, Memoir keeps working normally using only
+     localStorage — nothing else in the app depends on this block.
+     ============================================================ -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+  import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+  import { getFirestore, doc, setDoc, getDoc }
+    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+ 
+  const FIREBASE_CONFIG = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_PROJECT.firebaseapp.com",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_PROJECT.appspot.com",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+ 
+  window.__memoirCloud = { configured:false };
+  const looksConfigured = FIREBASE_CONFIG.apiKey && !FIREBASE_CONFIG.apiKey.startsWith('YOUR_');
+ 
+  if(looksConfigured){
+    try{
+      const app = initializeApp(FIREBASE_CONFIG);
+      const auth = getAuth(app);
+      const db = getFirestore(app);
+      const provider = new GoogleAuthProvider();
+ 
+      window.__memoirCloud = {
+        configured: true,
+        signIn: () => signInWithPopup(auth, provider).catch(err => console.warn('Sign-in failed', err)),
+        signOutUser: () => signOut(auth),
+        saveCloud: async (uid, data) => setDoc(doc(db, 'memoir_users', uid), data, { merge: true }),
+        loadCloud: async (uid) => {
+          const snap = await getDoc(doc(db, 'memoir_users', uid));
+          return snap.exists() ? snap.data() : null;
+        },
+      };
+ 
+      onAuthStateChanged(auth, (user) => {
+        window.dispatchEvent(new CustomEvent('memoir-auth-changed', {
+          detail: { user: user ? { uid:user.uid, displayName:user.displayName, email:user.email, photoURL:user.photoURL } : null }
+        }));
+      });
+    } catch (err) {
+      console.warn('Firebase failed to initialize — check FIREBASE_CONFIG.', err);
+    }
+  }
+  window.dispatchEvent(new CustomEvent('memoir-cloud-ready'));
 </script>
 </body>
 </html>
