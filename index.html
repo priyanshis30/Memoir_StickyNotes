@@ -380,9 +380,6 @@ button{font-family:inherit; cursor:pointer;}
 .profile-meta{ flex:1; min-width:0; }
 .profile-name{ font-size:12.5px; font-weight:700; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .cloud-status{ font-size:10.5px; color:var(--text-soft); display:flex; align-items:center; gap:4px; }
-.cloud-status.synced{ color:#4CA36B; }
-.cloud-status.syncing{ color:#C79A2E; }
-.cloud-status.offline{ color:#C1592B; }
 .signin-btn{ width:100%; padding:9px; border-radius:14px; border:1.5px solid rgba(90,75,71,0.15); background:#fff; font-size:12px; font-weight:600; color:var(--text); cursor:pointer; display:flex; align-items:center; justify-content:center; gap:6px; transition:transform .2s ease; }
 .signin-btn:hover{ transform:translateY(-1px); box-shadow:var(--shadow-tiny); }
 .signout-btn{ background:none; border:none; font-size:10.5px; color:var(--text-soft); text-decoration:underline; cursor:pointer; padding:0; }
@@ -693,11 +690,12 @@ const SEASON_ORDER = ['spring','summer','monsoon','autumn','winter'];
 const THEME_MODE_KEY = 'memoir-theme-mode';
 let themeMode = localStorage.getItem(THEME_MODE_KEY) || 'auto';
 let activeTheme = 'summer';
-function seasonForMonth(m){ // m = 0..11
-  if(m>=2 && m<=4) return 'spring';
-  if(m>=5 && m<=7) return 'summer';
-  if(m>=8 && m<=10) return 'autumn';
-  return 'winter';
+function seasonForMonth(m){ // m = 0..11 (Jan=0 ... Dec=11)
+  if(m>=2 && m<=3) return 'spring';   // Mar, Apr
+  if(m>=4 && m<=5) return 'summer';   // May, Jun
+  if(m>=6 && m<=8) return 'monsoon';  // Jul, Aug, Sep
+  if(m>=9 && m<=10) return 'autumn';  // Oct, Nov
+  return 'winter';                    // Dec, Jan, Feb
 }
 function autoSeason(){ return seasonForMonth(new Date().getMonth()); }
 function resolveTheme(){ return themeMode==='auto' ? autoSeason() : themeMode; }
@@ -832,7 +830,6 @@ function loadNotes(){
 function saveNotes(){
   try{ localStorage.setItem(NOTES_KEY, JSON.stringify(notes)); }
   catch(e){ console.warn('Could not save notes', e); toast('⚠️ Could not save — storage may be full'); }
-  if(typeof cloudUser !== 'undefined' && cloudUser) pushCloudSync();
 }
  
 let notes = loadNotes();
@@ -1077,95 +1074,12 @@ function showReminderBanner(msg){
   document.getElementById('dismissReminder').addEventListener('click', ()=> wrap.innerHTML='');
 }
  
-/* ================= GOOGLE ACCOUNT SYNC (Firebase) ================= */
-// Real integration lives in the <script type="module"> block near the end of this file.
-// This app works fully offline via localStorage until a Firebase project is configured there.
-let cloudUser = null;
-let cloudStatus = 'offline'; // 'synced' | 'syncing' | 'offline'
+/* ================= PROFILE (local storage only) ================= */
 function renderProfileCard(){
   const el = document.getElementById('profileCard');
   if(!el) return;
-  const cloud = window.__memoirCloud;
-  if(!cloud || !cloud.configured){
-    el.innerHTML = `<div class="profile-meta"><div class="profile-name">Not connected</div><div class="cloud-status offline">⚠ Local only — see Settings</div></div>`;
-    return;
-  }
-  if(cloudUser){
-    el.innerHTML = `
-      <div class="profile-avatar">${cloudUser.photoURL ? `<img src="${cloudUser.photoURL}" alt="">` : (cloudUser.displayName||'?')[0]}</div>
-      <div class="profile-meta">
-        <div class="profile-name">${escapeHtml(cloudUser.displayName || cloudUser.email || 'Signed in')}</div>
-        <div class="cloud-status ${cloudStatus}">${cloudStatus==='synced'?'☁️ Synced':cloudStatus==='syncing'?'⟳ Syncing':'⚠ Offline'}</div>
-        <button class="signout-btn" id="cloudSignOut">Sign out</button>
-      </div>`;
-    document.getElementById('cloudSignOut')?.addEventListener('click', ()=> cloud.signOutUser?.());
-  } else {
-    el.innerHTML = `<button class="signin-btn" id="cloudSignIn">🔵 Sign in with Google</button>`;
-    document.getElementById('cloudSignIn')?.addEventListener('click', ()=> cloud.signIn?.());
-  }
+  el.innerHTML = `<div class="profile-meta"><div class="profile-name">Your notes</div><div class="cloud-status local">📝 Saved on this device only</div></div>`;
 }
-function renderCloudArea(el){
-  if(!el) return;
-  const cloud = window.__memoirCloud;
-  if(!cloud || !cloud.configured){
-    el.innerHTML = `<div class="settings-note">⚠️ No Firebase project is connected yet. Add your Firebase config in the <code>&lt;script type="module"&gt;</code> block near the end of index.html to turn this on — everything keeps working locally in the meantime.</div>`;
-    return;
-  }
-  if(cloudUser){
-    el.innerHTML = `
-      <div class="settings-row">
-        <div><div class="sr-label">${escapeHtml(cloudUser.displayName || cloudUser.email)}</div><div class="sr-sub cloud-status ${cloudStatus}">${cloudStatus==='synced'?'☁️ Synced':cloudStatus==='syncing'?'⟳ Syncing':'⚠ Offline'}</div></div>
-        <button class="signin-btn" style="width:auto; padding:8px 14px;" id="cloudSignOut2">Sign out</button>
-      </div>`;
-    document.getElementById('cloudSignOut2')?.addEventListener('click', ()=> cloud.signOutUser?.());
-  } else {
-    el.innerHTML = `<button class="signin-btn" id="cloudSignIn2">🔵 Sign in with Google</button>`;
-    document.getElementById('cloudSignIn2')?.addEventListener('click', ()=> cloud.signIn?.());
-  }
-}
-function pushCloudSync(){
-  const cloud = window.__memoirCloud;
-  if(!cloud || !cloud.configured || !cloudUser) return;
-  cloudStatus = navigator.onLine===false ? 'offline' : 'syncing';
-  renderProfileCard();
-  const payload = {
-    notes, themeMode, moodFavQuotes:getFavQuoteIds(), reminders:getReminderPrefs(),
-    activeDays:getActiveDays(), updatedAt: Date.now()
-  };
-  cloud.saveCloud(cloudUser.uid, payload).then(()=>{
-    cloudStatus = 'synced'; renderProfileCard();
-  }).catch(()=>{
-    cloudStatus = 'offline'; renderProfileCard();
-  });
-}
-window.addEventListener('online', ()=>{ if(cloudUser) pushCloudSync(); });
-window.addEventListener('offline', ()=>{ cloudStatus='offline'; renderProfileCard(); });
-window.addEventListener('memoir-cloud-ready', ()=> renderProfileCard());
-window.addEventListener('memoir-auth-changed', async (e)=>{
-  const cloud = window.__memoirCloud;
-  cloudUser = e.detail.user;
-  if(cloudUser && cloud){
-    cloudStatus='syncing'; renderProfileCard();
-    try{
-      const cloudData = await cloud.loadCloud(cloudUser.uid);
-      if(cloudData && Array.isArray(cloudData.notes)){
-        // cloud already has data — treat it as the source of truth
-        notes = cloudData.notes;
-        if(cloudData.themeMode){ themeMode = cloudData.themeMode; localStorage.setItem(THEME_MODE_KEY, themeMode); }
-        saveNotes();
-      } else {
-        // first time syncing this account — migrate local data up
-        await cloud.saveCloud(cloudUser.uid, { notes, themeMode, activeDays:getActiveDays(), updatedAt: Date.now() });
-      }
-      cloudStatus='synced';
-      toast('☁️ Signed in and synced');
-    }catch(err){ cloudStatus='offline'; }
-    applyTheme();
-  } else {
-    cloudStatus='offline';
-    renderProfileCard();
-  }
-});
  
  
 function activeNotes(){ return notes.filter(n=>!n.trashed && !n.archived); }
@@ -1371,9 +1285,9 @@ function renderSettingsPanel(){
  
   const cloudBlock = `
     <div class="settings-block">
-      <h3>☁️ Account & Cloud Sync</h3>
-      <p class="settings-desc">Sign in with Google to sync notes, checklists, pins, favorites, archive, your seasonal theme, garden and mood history across devices.</p>
-      <div id="settingsCloudArea"></div>
+      <h3>📝 Your Data</h3>
+      <p class="settings-desc">Everything you write in Memoir — notes, checklists, pins, favorites, archive, theme, garden and mood history — is saved only in this browser, on this device. There's no account and nothing is sent anywhere.</p>
+      <div class="settings-note">⚠️ If you switch browsers or devices, or clear your browser data, you'll lose access to these notes — so use the same browser and device each time.</div>
     </div>`;
  
   return `<div class="settings-panel">
@@ -1404,8 +1318,6 @@ function wireSettingsPanel(){
   });
   document.getElementById('remCustomTime')?.addEventListener('change', e=>{ const p=getReminderPrefs(); p.customTime=e.target.value; saveReminderPrefs(p); });
   document.getElementById('remNotifBtn')?.addEventListener('click', ()=> requestNotifPermission());
- 
-  renderCloudArea(document.getElementById('settingsCloudArea'));
 }
  
 function applyTheme(){
@@ -1847,64 +1759,5 @@ checkReminders();
 setInterval(checkReminders, 5*60*1000); // re-check every 5 minutes without ever showing more than one banner per day
 </script>
  
-<!-- ============================================================
-     GOOGLE ACCOUNT SYNC (Firebase Auth + Firestore)
-     ------------------------------------------------------------
-     To turn this on:
-       1. Create a free project at https://console.firebase.google.com
-       2. Enable "Google" under Authentication → Sign-in method
-       3. Create a Firestore database (production or test mode)
-       4. Copy your project's config object into FIREBASE_CONFIG below
-     Until you do, Memoir keeps working normally using only
-     localStorage — nothing else in the app depends on this block.
-     ============================================================ -->
-<script type="module">
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
-  import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }
-    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
-  import { getFirestore, doc, setDoc, getDoc }
-    from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
- 
-  const FIREBASE_CONFIG = {
-    apiKey: "YOUR_API_KEY",
-    authDomain: "YOUR_PROJECT.firebaseapp.com",
-    projectId: "YOUR_PROJECT_ID",
-    storageBucket: "YOUR_PROJECT.appspot.com",
-    messagingSenderId: "YOUR_SENDER_ID",
-    appId: "YOUR_APP_ID"
-  };
- 
-  window.__memoirCloud = { configured:false };
-  const looksConfigured = FIREBASE_CONFIG.apiKey && !FIREBASE_CONFIG.apiKey.startsWith('YOUR_');
- 
-  if(looksConfigured){
-    try{
-      const app = initializeApp(FIREBASE_CONFIG);
-      const auth = getAuth(app);
-      const db = getFirestore(app);
-      const provider = new GoogleAuthProvider();
- 
-      window.__memoirCloud = {
-        configured: true,
-        signIn: () => signInWithPopup(auth, provider).catch(err => console.warn('Sign-in failed', err)),
-        signOutUser: () => signOut(auth),
-        saveCloud: async (uid, data) => setDoc(doc(db, 'memoir_users', uid), data, { merge: true }),
-        loadCloud: async (uid) => {
-          const snap = await getDoc(doc(db, 'memoir_users', uid));
-          return snap.exists() ? snap.data() : null;
-        },
-      };
- 
-      onAuthStateChanged(auth, (user) => {
-        window.dispatchEvent(new CustomEvent('memoir-auth-changed', {
-          detail: { user: user ? { uid:user.uid, displayName:user.displayName, email:user.email, photoURL:user.photoURL } : null }
-        }));
-      });
-    } catch (err) {
-      console.warn('Firebase failed to initialize — check FIREBASE_CONFIG.', err);
-    }
-  }
-  window.dispatchEvent(new CustomEvent('memoir-cloud-ready'));
-</script>
 </body>
 </html>
