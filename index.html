@@ -477,6 +477,24 @@ button{font-family:inherit; cursor:pointer;}
   .bottom-nav button{ background:none; border:none; font-size:20px; padding:6px 10px; border-radius:14px; color:var(--text-soft); }
   .bottom-nav button.active{ color:var(--sunset); background:rgba(255,153,102,0.12); }
   .fab{ right:20px; bottom:88px; }
+  .topbar{ gap:14px; }
+  .searchwrap{ min-width:0; max-width:none; flex-basis:100%; }
+  /* Note action buttons rely on :hover, which doesn't exist on touch — show them always here */
+  .note-actions{ opacity:1; transform:none; }
+}
+@media (hover:none) and (pointer:coarse){
+  .note-actions{ opacity:1; transform:none; }
+}
+@media (max-width:480px){
+  .greeting-block h1{ font-size:24px; }
+  .greeting-block p{ font-size:16px; }
+  .stat-strip{ grid-template-columns:1fr 1fr; gap:10px; }
+  .stat-card{ padding:12px 14px; }
+  .stat-value{ font-size:19px; }
+  .modal{ padding:20px 18px; border-radius:22px; }
+  .fab{ width:54px; height:54px; font-size:22px; right:16px; }
+  .theme-grid{ grid-template-columns:repeat(auto-fill, minmax(120px,1fr)); }
+  .otd-item{ flex:0 0 180px; }
 }
 </style>
 </head>
